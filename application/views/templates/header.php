@@ -86,9 +86,9 @@ https://www.bancomachala.com/favicon.png" />
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
             <!-- Cards -->
             <li class="menu-item">
-              <a href="cards-basic.html" class="menu-link">
+              <a href="<?php echo site_url('agencias/index'); ?>" class="menu-link">
                 <i class="menu-icon bx bxs-bank"></i>
-                <div data-i18n="Basic">Bancos</div>
+                <div data-i18n="Basic">Agencias</div>
               </a>
             </li>
 			<li class="menu-item">

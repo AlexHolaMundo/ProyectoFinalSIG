@@ -6,7 +6,7 @@
 				document.write(new Date().getFullYear());
 			</script>
 			, Created ❤️ by
-			<a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">AlexHolaMundo</a>
+			<a href="https://github.com/AlexHolaMundo" target="_blank" class="footer-link fw-bolder">AlexHolaMundo</a>
 		</div>
 	</div>
 </footer>

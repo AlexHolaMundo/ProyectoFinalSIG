@@ -17,7 +17,7 @@
 											<label class="form-label" for="">Nombre de la agencia</label>
 											<div class="input-group input-group-merge">
 												<span id="" class="input-group-text"><i class="bx bx-buildings"></i></span>
-												<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Agencia Example" aria-la	/>
+												<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Agencia Example" aria-la />
 											</div>
 										</div>
 										<div class="mb-3">
@@ -75,8 +75,8 @@
 										<div class="mb-3">
 											<label class="form-label" for="">Horario Diferido</label>
 											<div class="input-group input-group-merge">
-												<span class="input-group-text"><i class="bx bx-envelope"></i></span>
-												<input type="text" id="horarioFirefido" name="horarioFirefido" class="form-control" placeholder="Sabados - Domingos 00:00 AM - 00:00 PM" />
+												<span class="input-group-text"><i class="bx bx-time-five"></i></span>
+												<input type="text" id="horarioDiferido" name="horarioDiferido" class="form-control" placeholder="Sabados - Domingos 00:00 AM - 00:00 PM" />
 											</div>
 										</div>
 										<div class="mb-3">
@@ -102,6 +102,12 @@
 										</div>
 									</div>
 								</div>
+								<div class="row">
+									<div class="col-md-12 m-2">
+										<legend class="text-center">Arrastra el marcador hacia la ubicacion</legend>
+										<div id="mapa" style="width: 100%; height:310px; border-radius:5px;"></div>
+									</div>
+								</div>
 								<button type="submit" class="btn btn-primary">Registrar</button>
 							</form>
 						</div>
@@ -110,3 +116,34 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		function initMap() {
+    var coordenadaCentral = new google.maps.LatLng(-0.9171755208692692, -78.6328634793978);
+    var miMapa = new google.maps.Map(document.getElementById('mapa'), {
+        center: coordenadaCentral,
+        zoom: 13,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+    
+    var iconoCasa = {
+        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000"><path d="M12 0l-9 7h6v7h6v-7h6l-9-7z"/></svg>'),
+        scaledSize: new google.maps.Size(32, 32) // Ajusta el tamaño según lo necesites
+    };
+
+    var marcador = new google.maps.Marker({
+        position: coordenadaCentral,
+        map: miMapa,
+        title: 'Seleccione la ubicación de la Agencia',
+        draggable: true,
+        icon: iconoCasa // Usar el icono personalizado
+    });
+    
+    google.maps.event.addListener(marcador, 'dragend', function(event) {
+        var latitud = this.getPosition().lat();
+        var longitud = this.getPosition().lng();
+        document.getElementById('latitud').value = latitud;
+        document.getElementById('longitud').value = longitud;
+    });
+}
+
+	</script>

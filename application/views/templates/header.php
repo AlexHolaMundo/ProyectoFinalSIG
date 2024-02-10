@@ -51,6 +51,8 @@ https://www.bancomachala.com/favicon.png" />
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="<?= base_url('assets/js/config.js') ?>"></script>
+		<!-- Google Maps API -->
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqMDMrp8yZDRwwhG7ESbyCPFu_o_InLgk&libraries=places&callback=initMap"></script>
   </head>
 
   <body>

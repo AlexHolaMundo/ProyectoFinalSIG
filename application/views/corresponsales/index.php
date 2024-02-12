@@ -14,7 +14,7 @@
 								<div class="row">
 									<div class="col-md-6">
 										<div class="mb-3">
-											<label class="form-label" for="">Nombre</label>
+											<label class="form-label" for="">Nombre del Corresponsal</label>
 											<div class="input-group input-group-merge">
 												<span id="" class="input-group-text"><i class="bx bx-buildings"></i></span>
 												<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Corresponsal Example" aria-la />
@@ -61,7 +61,7 @@
 										<div class="mb-3">
 											<label class="form-label" for="">Descripcion</label>
 											<div class="input-group input-group-merge">
-												<span class="input-group-text"><i class="bx bx-envelope"></i></span>
+												<span class="input-group-text"><i class="bx bx-text"></i></span>
 												<textarea type="text" id="descripcion" name="descripcion" class="form-control" placeholder="Alguna descripcion"></textarea>
 											</div>
 										</div>
@@ -137,10 +137,10 @@
 							<td class="text-center"><?php echo $corresponsal->longitudCorresponsal; ?></td>
 							<td class="text-center">
 								<a href="<?php echo site_url('corresponsales/borrar/') . $corresponsal->idCorresponsal; ?>" class=" btn btn-outline-danger delete-btn" title="Eliminar">
-									<i class="bx bxs-trash"></i>
+									<i class="bi bi-trash3-fill"></i>
 								</a>
 								<a href="<?php echo site_url('corresponsales/editar/') . $corresponsal->idCorresponsal; ?>" class=" btn btn-outline-warning" title="Editar">
-									<i class="bx bxs-edit"></i>
+									<i class="bi bi-pen"></i>
 								</a>
 							</td>
 						</tr>

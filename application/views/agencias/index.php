@@ -16,7 +16,7 @@
 										<div class="mb-3">
 											<label class="form-label" for="">Nombre de la agencia</label>
 											<div class="input-group input-group-merge">
-												<span id="" class="input-group-text"><i class="bx bx-buildings"></i></span>
+												<span id="" class="input-group-text"><i class="bx bx-building-house"></i></span>
 												<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Agencia Example" aria-la />
 											</div>
 										</div>
@@ -161,10 +161,10 @@
 							<td class="text-center"><?php echo $agencia->longitudAgencia; ?></td>
 							<td class="text-center">
 								<a href="<?php echo site_url('agencias/borrar/') . $agencia->idAgencia; ?>" class=" btn btn-outline-danger delete-btn" title="Eliminar">
-									<i class="bx bxs-trash"></i>
+									<i class="bi bi-trash3-fill"></i>
 								</a>
 								<a href="<?php echo site_url('agencias/editar/') . $agencia->idAgencia; ?>" class=" btn btn-outline-warning" title="Editar">
-									<i class="bx bxs-edit"></i>
+									<i class="bi bi-pen"></i>
 								</a>
 							</td>
 						</tr>

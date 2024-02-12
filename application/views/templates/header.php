@@ -85,7 +85,7 @@ https://www.bancomachala.com/favicon.png" />
               </a>
             </li>
             <!-- Components -->
-            <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
+            <li class="menu-header small text-uppercase"><span class="menu-header-text">SECCIONES</span></li>
             <!-- Cards -->
             <li class="menu-item">
               <a href="<?php echo site_url('agencias/index'); ?>" class="menu-link">

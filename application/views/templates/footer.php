@@ -5,7 +5,7 @@
 			<script>
 				document.write(new Date().getFullYear());
 			</script>
-			, Created ❤️ by
+			, Created by:
 			<a href="https://github.com/AlexHolaMundo" target="_blank" class="footer-link fw-bolder">AlexHolaMundo</a>
 		</div>
 	</div>

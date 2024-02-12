@@ -17,21 +17,21 @@
 											<label class="form-label" for="">Estado</label>
 											<div class="input-group input-group-merge">
 												<span id="" class="input-group-text"><i class="bx bx-cog"></i></span>
-												<select type="text" class="form-select" id="estado" name="estado" placeholder="Activo" aria-la >
-												<option value="activo">Activo</option>
-												<option value="inactivo">Inactivo</option>
-												<option value="mantenimiento">En mantenimiento</option>
-											</select>
+												<select type="text" class="form-select" id="estado" name="estado" placeholder="Activo" aria-la>
+													<option value="activo">Activo</option>
+													<option value="inactivo">Inactivo</option>
+													<option value="mantenimiento">En mantenimiento</option>
+												</select>
 											</div>
 										</div>
 										<div class="mb-3">
 											<label class="form-label" for="">Tipo</label>
 											<div class="input-group input-group-merge">
 												<span id="" class="input-group-text"><i class="bx bx-caret-right"></i></span>
-												<select type="text" id="tipo" name="tipo" class="form-control" placeholder="Cash" >
-												<option value="cash">Cash</option>
-												<option value="cheque">Full</option>
-											</select>
+												<select type="text" id="tipo" name="tipo" class="form-control" placeholder="Cash">
+													<option value="cash">Cash</option>
+													<option value="cheque">Full</option>
+												</select>
 											</div>
 										</div>
 									</div>
@@ -97,6 +97,57 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="table-responsive">
+		<?php if ($listadoCajeros) : ?>
+			<table class="table">
+				<thead>
+					<tr style="background-color: #097635;">
+						<th class="text-center">ID</th>
+						<th class="text-center">ESTADO</th>
+						<th class="text-center">TIPO</th>
+						<th class="text-center">PROVINCIA</th>
+						<th class="text-center">CIUDAD</th>
+						<th class="text-center">FOTOGRAFIA</th>
+						<th class="text-center">LATITUD</th>
+						<th class="text-center">LONGITUD</th>
+						<th class="text-center">ACCIONES</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($listadoCajeros as $cajero) : ?>
+						<tr>
+							<td class="text-center"><?php echo $cajero->idCajero; ?></td>
+							<td class="text-center"><?php echo $cajero->estado; ?></td>
+							<td class="text-center"><?php echo $cajero->tipo; ?></td>
+							<td class="text-center"><?php echo $cajero->provincia; ?></td>
+							<td class="text-center w-25"><?php echo $cajero->ciudad; ?></td>
+							<td class="text-center">
+								<?php if ($cajero->fotografia != "") : ?>
+									<img src="<?php echo base_url('uploads/cajeros/') . $cajero->fotografia; ?>" height="50px" width="50px" alt="cajero">
+								<?php else : ?>
+									N/A
+								<?php endif; ?>
+							</td>
+							<td class="text-center"><?php echo $cajero->latitudCajero; ?></td>
+							<td class="text-center"><?php echo $cajero->longitudCajero; ?></td>
+							<td class="text-center">
+								<a href="<?php echo site_url('cajeros/borrar/') . $cajero->idCajero; ?>" class=" btn btn-outline-danger delete-btn" title="Eliminar">
+									<i class="bi bi-trash3-fill"></i>
+								</a>
+								<a href="<?php echo site_url('cajeros/editar/') . $cajero->idCajero; ?>" class=" btn btn-outline-warning" title="Editar">
+									<i class="bi bi-pen"></i>
+								</a>
+							</td>
+						</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+		<?php else : ?>
+			<div class="alert alert-danger">
+				No se encontro cajeros registrados
+			</div>
+		<?php endif; ?>
 	</div>
 	<script>
 		function initMap() {

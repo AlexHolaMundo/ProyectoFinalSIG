@@ -118,7 +118,7 @@
 	</div>
 	<div class="table-responsive">
 		<?php if ($listadoAgencias) : ?>
-			<table class="table">
+			<table class="table w-100">
 				<thead>
 					<tr style="background-color: #097635;">
 						<th class="text-center">ID</th>
@@ -157,8 +157,8 @@
 									N/A
 								<?php endif; ?>
 							</td>
-							<td class="text-center"><?php echo $agencia->latitud; ?></td>
-							<td class="text-center"><?php echo $agencia->longitud; ?></td>
+							<td class="text-center"><?php echo $agencia->latitudAgencia; ?></td>
+							<td class="text-center"><?php echo $agencia->longitudAgencia; ?></td>
 							<td class="text-center">
 								<a href="<?php echo site_url('agencias/borrar/') . $agencia->idAgencia; ?>" class=" btn btn-outline-danger delete-btn" title="Eliminar">
 									<i class="bx bxs-trash"></i>
@@ -202,8 +202,8 @@
 			google.maps.event.addListener(marcador, 'dragend', function(event) {
 				var latitud = this.getPosition().lat();
 				var longitud = this.getPosition().lng();
-				document.getElementById('latitud').value = latitud;
-				document.getElementById('longitud').value = longitud;
+				document.getElementById('latitudAgencia').value = latitud;
+				document.getElementById('longitudAgencia').value = longitud;
 			});
 		}
 	</script>

@@ -128,13 +128,13 @@
 							<td class="text-center"><?php echo $corresponsal->horario; ?></td>
 							<td class="text-center">
 								<?php if ($corresponsal->fotografia != "") : ?>
-									<img src="<?php echo base_url('uploads/corresponsales/') . $corresponsal->fotografia; ?>" height="50px" width="50px" alt="">
+									<img src="<?php echo base_url('uploads/corresponsales/') . $corresponsal->fotografia; ?>" height="50px" width="50px" alt="Corresponsal">
 								<?php else : ?>
 									N/A
 								<?php endif; ?>
 							</td>
-							<td class="text-center"><?php echo $corresponsal->latitud; ?></td>
-							<td class="text-center"><?php echo $corresponsal->longitud; ?></td>
+							<td class="text-center"><?php echo $corresponsal->latitudCorresponsal; ?></td>
+							<td class="text-center"><?php echo $corresponsal->longitudCorresponsal; ?></td>
 							<td class="text-center">
 								<a href="<?php echo site_url('corresponsales/borrar/') . $corresponsal->idCorresponsal; ?>" class=" btn btn-outline-danger delete-btn" title="Eliminar">
 									<i class="bx bxs-trash"></i>
@@ -152,26 +152,6 @@
 				No se encontro corresponsales registrados
 			</div>
 		<?php endif; ?>
-		<script>
-			function initMap() {
-				var coordenadaCentral = new google.maps.LatLng(-0.9171755208692692, -78.6328634793978);
-				var miMapa = new google.maps.Map(document.getElementById('reporteMapa'), {
-					center: coordenadaCentral,
-					zoom: 13,
-					mapTypeId: google.maps.MapTypeId.ROADMAP
-				});
-				<?php foreach ($listadocorresponsales as $corresponsal) : ?>
-					var coordenadaTemporal = new google.maps.LatLng(
-						<?php echo $corresponsal->latitud_hos; ?>,
-						<?php echo $corresponsal->longitud_hos; ?>);
-					var marcador = new google.maps.Marker({
-						position: coordenadaTemporal,
-						map: miMapa,
-						title: "<?php echo $corresponsal->nombre_hos; ?>",
-					});
-				<?php endforeach; ?>
-			}
-		</script>
 	</div>
 
 
@@ -200,8 +180,8 @@
 			google.maps.event.addListener(marcador, 'dragend', function(event) {
 				var latitud = this.getPosition().lat();
 				var longitud = this.getPosition().lng();
-				document.getElementById('latitud').value = latitud;
-				document.getElementById('longitud').value = longitud;
+				document.getElementById('latitudCorresponsal').value = latitud;
+				document.getElementById('longitudCorresponsal').value = longitud;
 			});
 		}
 	</script>

@@ -10,9 +10,9 @@ class Cajeros extends CI_Controller
 	//Renderizar la vista de la lista de cajeros
 	public function index()
 	{
-		//$data['listadoCajeros'] = $this->Cajero->getCajeros();
+		$data['listadoCajeros'] = $this->Cajero->consultarTodos();
 		$this->load->view('../views/templates/header');
-		$this->load->view('cajeros/index');
+		$this->load->view('cajeros/index', $data);
 		$this->load->view('../views/templates/footer');
 	}
 

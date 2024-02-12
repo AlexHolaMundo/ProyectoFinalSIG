@@ -5,11 +5,13 @@ class Cajeros extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('Cajero');
+		$this->load->model('Agencia');
 	}
 
 	//Renderizar la vista de la lista de cajeros
 	public function index()
 	{
+		$data['listadoAgencias'] = $this->Agencia->consultarTodos();
 		$data['listadoCajeros'] = $this->Cajero->consultarTodos();
 		$this->load->view('../views/templates/header');
 		$this->load->view('cajeros/index', $data);
@@ -40,6 +42,10 @@ class Cajeros extends CI_Controller
 		} else {
 			$nombre_archivo_subido = ""; //Cuando no se sube el archivo el nombre queda VACIO
 		}
+		// Obtener el nombre de la agencia seleccionada
+		$idAgencia = $this->input->post("id_agencia");
+		$agencia = $this->Agencia->obtenerPorId($idAgencia);
+		$nombreAgencia = ($agencia) ? $agencia->nombre : "";
 		$datosNuevoCajero = array(
 			"estado" => $this->input->post("estado"),
 			"tipo" => $this->input->post("tipo"),
@@ -47,7 +53,9 @@ class Cajeros extends CI_Controller
 			"ciudad" => $this->input->post("ciudad"),
 			"fotografia" => $nombre_archivo_subido,
 			"latitudCajero" => $this->input->post("latitudCajero"),
-			"longitudCajero" => $this->input->post("longitudCajero")
+			"longitudCajero" => $this->input->post("longitudCajero"),
+			"idAgencia" => $this->input->post("id_agencia"),
+			"nombreAgencia" => $nombreAgencia
 		);
 		$this->Cajero->insertar($datosNuevoCajero);
 		$this->session->set_flashdata('alerta', 'Cajero guardado correctamente');

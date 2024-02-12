@@ -63,7 +63,7 @@ https://www.bancomachala.com/favicon.png" />
 
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <a href="/" class="app-brand-link">
+            <a href="<?php echo site_url(); ?>" class="app-brand-link">
               <span class="app-brand-logo demo">
                 <img src="https://www.bancomachala.com/media/44315/bm_logobm_institucional2021_principal2.png" width="190px" alt="">
               </span>
@@ -79,7 +79,7 @@ https://www.bancomachala.com/favicon.png" />
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item active">
-              <a href="index.html" class="menu-link">
+              <a href="<?php echo site_url(); ?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Inicio</div>
               </a>
@@ -94,13 +94,13 @@ https://www.bancomachala.com/favicon.png" />
               </a>
             </li>
 			<li class="menu-item">
-              <a href="cards-basic.html" class="menu-link">
+              <a href="<?php echo site_url('cajeros/index'); ?>" class="menu-link">
                 <i class="menu-icon bx bx-money"></i>
                 <div data-i18n="Basic">Cajeros</div>
               </a>
             </li>
 			<li class="menu-item">
-              <a href="cards-basic.html" class="menu-link">
+              <a href="<?php echo site_url('corresponsales/index'); ?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-building-house"></i>
                 <div data-i18n="Basic">Corresponsales</div>
               </a>

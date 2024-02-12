@@ -20,6 +20,8 @@
 												<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Agencia Example" aria-la />
 											</div>
 										</div>
+									</div>
+									<div class="col-md-6">
 										<div class="mb-3">
 											<label class="form-label" for="">Direccion</label>
 											<div class="input-group input-group-merge">
@@ -27,6 +29,10 @@
 												<input type="text" id="direccion" name="direccion" class="form-control" placeholder="Av. Example" />
 											</div>
 										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
 										<div class="mb-3">
 											<label class="form-label" for="">Email</label>
 											<div class="input-group input-group-merge">
@@ -35,6 +41,8 @@
 												<span id="" class="input-group-text">@example.com</span>
 											</div>
 										</div>
+									</div>
+									<div class="col-md-6">
 										<div class="mb-3">
 											<label class="form-label" for="">Telefono</label>
 											<div class="input-group input-group-merge">
@@ -42,6 +50,10 @@
 												<input type="text" id="telefono" name="telefono" class="form-control" placeholder="000 000 0000" />
 											</div>
 										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
 										<div class="mb-3">
 											<label class="form-label" for="">Ciudad</label>
 											<div class="input-group input-group-merge">
@@ -49,6 +61,8 @@
 												<input type="text" id="ciudad" name="ciudad" class="form-control" placeholder="Ciudad Example" />
 											</div>
 										</div>
+									</div>
+									<div class="col-md-6">
 										<div class="mb-3">
 											<label class="form-label" for="">Provincia</label>
 											<div class="input-group input-group-merge">
@@ -57,6 +71,8 @@
 											</div>
 										</div>
 									</div>
+								</div>
+								<div class="row">
 									<div class="col-md-6">
 										<div class="mb-3">
 											<label class="form-label" for="">Fecha de Inaguracion</label>
@@ -65,6 +81,8 @@
 												<input type="date" class="form-control" id="fechaInaguracion" name="fechaInaguracion" />
 											</div>
 										</div>
+									</div>
+									<div class="col-md-6">
 										<div class="mb-3">
 											<label class="form-label" for="">Horario</label>
 											<div class="input-group input-group-merge">
@@ -72,6 +90,10 @@
 												<input type="text" id="horario" name="horario" class="form-control" placeholder="Lunes - Viernes 00:00 AM - 00:00 PM" />
 											</div>
 										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
 										<div class="mb-3">
 											<label class="form-label" for="">Horario Diferido</label>
 											<div class="input-group input-group-merge">
@@ -79,13 +101,19 @@
 												<input type="text" id="horarioDiferido" name="horarioDiferido" class="form-control" placeholder="Sabados - Domingos 00:00 AM - 00:00 PM" />
 											</div>
 										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
 										<div class="mb-3">
 											<label class="form-label" for="">Fotografia</label>
-											<div class="input-group input-group-merge">
 												<span id="" class="input-group-text"><i class="bx bx-image-add"></i></span>
 												<input type="file" id="fotografia" name="fotografia" accept="img/*" class="form-control" />
-											</div>
 										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
 										<div class="mb-3">
 											<label class="form-label" for="">Latitud</label>
 											<div class="input-group input-group-merge">
@@ -93,6 +121,8 @@
 												<input type="text" id="latitud" name="latitud" class="form-control" placeholder="000000000000000" readonly />
 											</div>
 										</div>
+									</div>
+									<div class="col-md-6">
 										<div class="mb-3">
 											<label class="form-label" for="">Longitud</label>
 											<div class="input-group input-group-merge">

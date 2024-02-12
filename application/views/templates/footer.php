@@ -45,6 +45,11 @@
 
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
+<!-- Bootstrap Fileinput JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.8/js/fileinput.min.js"></script>
+<!-- español fileinput -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.8/js/locales/es.min.js"></script>
+<script src="<?= base_url('js/fileInput.js') ?>"></script>
 </body>
 
 </html>

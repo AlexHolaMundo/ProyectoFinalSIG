@@ -57,10 +57,8 @@
 									<div class="col-md-12">
 										<div class="mb-3">
 											<label class="form-label" for="">Fotografia</label>
-											<div class="input-group input-group-merge">
 												<span id="" class="input-group-text"><i class="bx bx-image-add"></i></span>
 												<input type="file" id="fotografia" name="fotografia" accept="img/*" class="form-control" />
-											</div>
 										</div>
 									</div>
 								</div>

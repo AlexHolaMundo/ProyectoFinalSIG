@@ -8,11 +8,21 @@
 	<title>Banco de Machala</title>
 
 	<meta name="description" content="" />
-
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+	<!-- FileInput CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.8/css/fileinput.min.css" />
+	<!-- Bootstrap Fileinput JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.8/js/fileinput.min.js"></script>
+	<!-- español fileinput -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.8/js/locales/es.min.js"></script>
+	<script src="<?= base_url('js/fileInput.js') ?>"></script>
+	<!-- SweetAlert2 CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.3/dist/sweetalert2.min.css">
+	<!-- SweetAlert2 JS -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.3/dist/sweetalert2.all.min.js"></script>
 	<!-- Favicon -->
-	<link rel="icon" type="image/x-icon" href="
-https://www.bancomachala.com/favicon.png" />
-
+	<link rel="icon" type="image/x-icon" href="https://www.bancomachala.com/favicon.png" />
 	<!-- Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -138,4 +148,39 @@ https://www.bancomachala.com/favicon.png" />
 						</ul>
 					</div>
 				</nav>
+				<script type="text/javascript">
+			$(document).ready(function() {
+				$('.delete-btn').on('click', function(e) {
+					e.preventDefault();
+					var url = $(this).attr('href');
+					var confirmationMessage = $(this).data('confirm-message') || "¿Estás seguro de que deseas eliminar este registro?";
+					Swal.fire({
+						title: "CONFIRMACIÓN",
+						text: confirmationMessage,
+						icon: "question",
+						showCancelButton: true,
+						confirmButtonColor: "#3085d6",
+						cancelButtonColor: "#d33",
+						confirmButtonText: "Sí",
+						cancelButtonText: "No"
+					}).then((result) => {
+						if (result.isConfirmed) {
+							window.location.href = url;
+						}
+					});
+				});
+			});
+		</script>
+		<?php if ($this->session->flashdata('alerta')) : ?>
+			<script>
+				$(document).ready(function() {
+					Swal.fire({
+						title: "Éxito!",
+						text: "<?php echo $this->session->flashdata('alerta') ?>",
+						icon: "success",
+					});
+				});
+			</script>
+			<?php $this->session->set_flashdata('alerta', '') ?>
+		<?php endif ?>
 				<div class="content-wrapper">

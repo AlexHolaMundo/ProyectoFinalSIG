@@ -116,6 +116,67 @@
 			</div>
 		</div>
 	</div>
+	<div class="table-responsive">
+		<?php if ($listadoAgencias) : ?>
+			<table class="table">
+				<thead>
+					<tr style="background-color: #097635;">
+						<th class="text-center">ID</th>
+						<th class="text-center">NOMBRE</th>
+						<th class="text-center">DIRECCION</th>
+						<th class="text-center">EMAIL</th>
+						<th class="text-center">TELEFONO</th>
+						<th class="text-center">CIUDAD</th>
+						<th class="text-center">PROVINCIA</th>
+						<th class="text-center">FECHA INAGURACION</th>
+						<th class="text-center">HORARIO</th>
+						<th class="text-center">HORARRIO DIFERIDO</th>
+						<th class="text-center">FOTOGRAFIA</th>
+						<th class="text-center">LATITUD</th>
+						<th class="text-center">LONGITUD</th>
+						<th class="text-center">ACCIONES</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($listadoAgencias as $agencia) : ?>
+						<tr>
+							<td class="text-center"><?php echo $agencia->idAgencia; ?></td>
+							<td class="text-center"><?php echo $agencia->nombre; ?></td>
+							<td class="text-center"><?php echo $agencia->direccion; ?></td>
+							<td class="text-center"><?php echo $agencia->email; ?></td>
+							<td class="text-center"><?php echo $agencia->telefono; ?></td>
+							<td class="text-center"><?php echo $agencia->ciudad; ?></td>
+							<td class="text-center"><?php echo $agencia->provincia; ?></td>
+							<td class="text-center"><?php echo $agencia->fechaInaguracion; ?></td>
+							<td class="text-center"><?php echo $agencia->horario; ?></td>
+							<td class="text-center"><?php echo $agencia->horarioDiferido; ?></td>
+							<td class="text-center">
+								<?php if ($agencia->fotografia != "") : ?>
+									<img src="<?php echo base_url('uploads/agencias/') . $agencia->fotografia; ?>" height="50px" width="50px" alt="">
+								<?php else : ?>
+									N/A
+								<?php endif; ?>
+							</td>
+							<td class="text-center"><?php echo $agencia->latitud; ?></td>
+							<td class="text-center"><?php echo $agencia->longitud; ?></td>
+							<td class="text-center">
+								<a href="<?php echo site_url('agencias/borrar/') . $agencia->idAgencia; ?>" class=" btn btn-outline-danger delete-btn" title="Eliminar">
+									<i class="bx bxs-trash"></i>
+								</a>
+								<a href="<?php echo site_url('agencias/editar/') . $agencia->idAgencia; ?>" class=" btn btn-outline-warning" title="Editar">
+									<i class="bx bxs-edit"></i>
+								</a>
+							</td>
+						</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+		<?php else : ?>
+			<div class="alert alert-danger">
+				No se encontro agenciaes registrados
+			</div>
+		<?php endif; ?>
+	</div>
 	<script>
 		function initMap() {
 			var coordenadaCentral = new google.maps.LatLng(-0.9171755208692692, -78.6328634793978);

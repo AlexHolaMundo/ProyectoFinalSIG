@@ -1,37 +1,37 @@
 <?php
-class Agencias extends CI_Controller
+class Corresponsales extends CI_Controller
 {
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('Agencia');
+		$this->load->model('Corresponsal');
 	}
 
-	//Renderizar la vista de la lista de agencias
+	//Renderizar la vista de la lista de corresponsales
 	public function index()
 	{
-		$data['listadoAgencias'] = $this->Agencia->consultarTodos();
+		$data['listadoCorresponsales'] = $this->Corresponsal->consultarTodos();
 		$this->load->view('../views/templates/header');
-		$this->load->view('agencias/index', $data);
+		$this->load->view('corresponsales/index', $data );
 		$this->load->view('../views/templates/footer');
 	}
 
-	//Eliminar una agencia
-	public function borrar($idAgencia)
+	//Eliminar un corresponsal
+	public function borrar($idCorresponsal)
 	{
-		$this->Agencia->eliminar($idAgencia);
-		$this->session->set_flashdata('alerta', 'Agencia eliminada correctamente');
-		redirect('agencias/index');
+		$this->Corresponsal->eliminar($idCorresponsal);
+		$this->session->set_flashdata('alerta', 'Corresponsal eliminado correctamente');
+		redirect('corresponsales/index');
 	}
 
-	//Insertar una agencia
+	//Insertar un corresponsal
 	public function guardar()
 	{
 		/* INICIO PROCESO DE SUBIDA DE ARCHIVO */
-		$config['upload_path'] = APPPATH . '../uploads/agencias/'; //ruta de subida de archivos
+		$config['upload_path'] = APPPATH . '../uploads/corresponsales/'; //ruta de subida de archivos
 		$config['allowed_types'] = 'jpeg|jpg|png'; //tipo de archivos permitidos
 		$config['max_size'] = 6 * 1024; //definir el peso maximo de subida (5MB)
-		$nombre_aleatorio = "agencia_" . time() * rand(100, 10000); //creando un nombre aleatorio
+		$nombre_aleatorio = "corresponsal_" . time() * rand(100, 10000); //creando un nombre aleatorio
 		$config['file_name'] = $nombre_aleatorio; //asignando el nombre al archivo subido
 		$this->load->library('upload', $config); //cargando la libreria UPLOAD
 		if ($this->upload->do_upload("fotografia")) { //intentando subir el archivo
@@ -40,35 +40,34 @@ class Agencias extends CI_Controller
 		} else {
 			$nombre_archivo_subido = ""; //Cuando no se sube el archivo el nombre queda VACIO
 		}
-		$datosNuevoAgencia = array(
+		$datosNuevoCorresponsal = array(
 			"nombre" => $this->input->post("nombre"),
 			"direccion" => $this->input->post("direccion"),
-			"email" => $this->input->post("email"),
 			"telefono" => $this->input->post("telefono"),
-			"ciudad" => $this->input->post("ciudad"),
-			"provincia" => $this->input->post("provincia"),
-			"fechaInaguracion" => $this->input->post("fechaInaguracion"),
+			"descripcion" => $this->input->post("descripcion"),
 			"horario" => $this->input->post("horario"),
-			"horarioDiferido" => $this->input->post("horarioDiferido"),
 			"fotografia" => $nombre_archivo_subido,
 			"latitud" => $this->input->post("latitud"),
 			"longitud" => $this->input->post("longitud")
 		);
-		$this->Agencia->insertar($datosNuevoAgencia);
-		$this->session->set_flashdata('alerta', 'Agencia guardada correctamente');
-		redirect('agencias/index');
+		$this->Corresponsal->insertar($datosNuevoCorresponsal);
+		$this->session->set_flashdata('alerta', 'Corresponsal guardado correctamente');
+		redirect('corresponsales/index');
 	}
-	//Editar una agencia
+
+	//Editar un corresponsal
 	public function editar($id)
 	{
-		$data['agenciaEditar'] = $this->Agencia->obtenerPorId($id);
+		$data['corresponsal'] = $this->Corresponsal->obtenerPorId($id);
 		$this->load->view('../views/templates/header');
-		$this->load->view('agencias/editar', $data);
+		$this->load->view('corresponsales/editar', $data);
 		$this->load->view('../views/templates/footer');
 	}
-	//Actualizar una agencia
-	public function actualizarAgencia()
+
+	//Actualizar un corresponsal
+	public function actualizarCorresponsal()
 	{
-		$idAgencia = $this->input->post("idAgencia");
+		$idCorresponsal = $this->input->post("idCorresponsal");
 	}
+
 }

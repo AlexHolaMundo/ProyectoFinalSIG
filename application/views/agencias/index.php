@@ -118,32 +118,31 @@
 	</div>
 	<script>
 		function initMap() {
-    var coordenadaCentral = new google.maps.LatLng(-0.9171755208692692, -78.6328634793978);
-    var miMapa = new google.maps.Map(document.getElementById('mapa'), {
-        center: coordenadaCentral,
-        zoom: 13,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
-    
-    var iconoCasa = {
-        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000"><path d="M12 0l-9 7h6v7h6v-7h6l-9-7z"/></svg>'),
-        scaledSize: new google.maps.Size(32, 32) // Ajusta el tamaño según lo necesites
-    };
+			var coordenadaCentral = new google.maps.LatLng(-0.9171755208692692, -78.6328634793978);
+			var miMapa = new google.maps.Map(document.getElementById('mapa'), {
+				center: coordenadaCentral,
+				zoom: 13,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			});
 
-    var marcador = new google.maps.Marker({
-        position: coordenadaCentral,
-        map: miMapa,
-        title: 'Seleccione la ubicación de la Agencia',
-        draggable: true,
-        icon: iconoCasa // Usar el icono personalizado
-    });
-    
-    google.maps.event.addListener(marcador, 'dragend', function(event) {
-        var latitud = this.getPosition().lat();
-        var longitud = this.getPosition().lng();
-        document.getElementById('latitud').value = latitud;
-        document.getElementById('longitud').value = longitud;
-    });
-}
+			var iconoURL = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAAAXNSR0IArs4c6QAAAi5JREFUOE+VlTFrFFEUhb+TKttoUOzUShujEFOI3YLVYrOVfyAQRLBw0d5sIYhV0EaxEDsFlXTbBkFS2pk0gqKFTYrFZiPIdebNfTPv7cwG3GZn3rw595xzz7sjAUb5E8L8OiyUS2C+I/+LD9ONfl29lt10FXDsM5imwv5UexYVLskd97zhewfxCOMQ2EB8zCXNiWrJbxbKneuYXoKtp8URbzHdE/YrKgsmRotyjNrCFcFjg03QUsvrqsLvwvGHiKcYf1M/Evl1VzaAJ4JTCYsZ4g2mc8JuVJzqxu6DNsE+pTbH60vAK8S12q9Gxi3gnQfiuYnbc6ko678GHgCHkelF0AHYUpKlur3CVg2+OOhdg2e1gXmofoDOy8msAZ+bbOZxEfbe4D7oLNgLYLUz1zAFyn6EHK9hDpq1uTPEObf8bgpaaTP1KqHjaTQ6At1xAqdYw7SM2QCYeNZGgm2DXaAPHCGWMa4De+77uADdMtgBDf2w94BZlB9ABRNnNyq82SaAqg/WAcq4eNlBGXoge5hmUX5p7EDYxM91xVTsYvQFRwbLkDJlXDDeIjB1UOiBnGnl4wDsv+QX8hxUQ+9BD4vyW6AagXXKF+y5RZV8sVMkp5IfmFLLvwD6AHbFZ+hXsJ9V1HQSzHwynQCuejO/A98QlzFOezgmwM14oprwp5FaNBcXZTmEX3n400HfwmtFvvOLkIV/rvaxqU9nQn5AkjrzsyEdjensbRVOT1RK4x+yS/ce9hlclgAAAABJRU5ErkJggg==';
 
+			var marcador = new google.maps.Marker({
+				position: coordenadaCentral,
+				map: miMapa,
+				title: 'Seleccione la ubicación de la Agencia',
+				draggable: true,
+				icon: {
+					url: iconoURL,
+					scaledSize: new google.maps.Size(25, 25)
+				}
+			});
+
+			google.maps.event.addListener(marcador, 'dragend', function(event) {
+				var latitud = this.getPosition().lat();
+				var longitud = this.getPosition().lng();
+				document.getElementById('latitud').value = latitud;
+				document.getElementById('longitud').value = longitud;
+			});
+		}
 	</script>

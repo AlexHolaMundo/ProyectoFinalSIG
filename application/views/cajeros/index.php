@@ -75,7 +75,7 @@
 									<div class="mb-3">
 										<label class="form-label" for="">Numero de Serie</label>
 										<div class="input-group input-group-merge">
-											<span id="" class="input-group-text"><i class="bx bx-image-add"></i></span>
+											<span id="" class="input-group-text"><i class="bx bx-barcode"></i></span>
 											<input type="text" id="serie" name="serie" class="form-control" placeholder="0000000000" />
 										</div>
 										<label id="serie-error" class="error error-message" for="serie"></label>

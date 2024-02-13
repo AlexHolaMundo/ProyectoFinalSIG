@@ -5,6 +5,24 @@ $.validator.addMethod(
 	},
 	"Solo se permiten letras en este campo"
 );
+$.validator.addMethod(
+	"fechaNoFutura",
+	function (value, element) {
+		var fechaActual = new Date();
+		var fechaInaguracion = new Date(value);
+		return fechaInaguracion <= fechaActual;
+	},
+	"La fecha de inauguración no puede ser una fecha futura"
+);
+$.validator.addMethod(
+	"fechaNoAnterior",
+	function (value, element) {
+		var fechaLimite = new Date("1962-07-16");
+		var fechaInaguracion = new Date(value);
+		return fechaInaguracion >= fechaLimite;
+	},
+	"La fecha de inauguración no puede ser anterior al 16 de julio de 1962"
+);
 // Validacion del formulario de registro de Agencias
 $(document).ready(function () {
 	$("#formAgencias").validate({
@@ -52,6 +70,8 @@ $(document).ready(function () {
 			},
 			fechaInaguracion: {
 				required: true,
+				fechaNoFutura: true,
+				fechaNoAnterior: true,
 			},
 			horario: {
 				required: true,
@@ -187,8 +207,8 @@ $(document).ready(function () {
 			},
 			serie: {
 				required: true,
-				minlength: 3,
-				maxlength: 50,
+				minlength: 4,
+				maxlength: 15,
 			},
 			latitudCajero: {
 				required: true,
@@ -242,8 +262,8 @@ $(document).ready(function () {
 			},
 			serie: {
 				required: "Por favor, ingrese la fotografia del cajero",
-				minlength: "La fotografia debe tener al menos 3 caracteres",
-				maxlength: "La fotografia debe tener máximo 50 caracteres",
+				minlength: "La fotografia debe tener al menos 4 caracteres",
+				maxlength: "La fotografia debe tener máximo 15 caracteres",
 			},
 			latitudCajero: {
 				required: "Por favor, ingrese la latitud del cajero",
@@ -297,7 +317,7 @@ $(document).ready(function () {
 			telefono: {
 				required: true,
 				number: true,
-				minlength: 10,
+				minlength: 7,
 				maxlength: 10,
 			},
 			descripcion: {
@@ -349,7 +369,7 @@ $(document).ready(function () {
 			telefono: {
 				required: "Por favor, ingrese el teléfono del corresponsal",
 				number: "Por favor, ingrese un número",
-				minlength: "El teléfono debe tener 10 caracteres",
+				minlength: "El teléfono debe tener como minimo 7 caracteres",
 				maxlength: "El teléfono debe tener 10 caracteres",
 			},
 			descripcion: {

@@ -78,7 +78,7 @@
 										<div class="mb-3">
 											<label class="form-label" for="">Numero de Serie</label>
 											<div class="input-group input-group-merge">
-											<span id="" class="input-group-text"><i class="bx bx-buildings"></i></span>
+											<span id="" class="input-group-text"><i class="bx bx-barcode"></i></span>
 											<input type="text" id="serie" name="serie" class="form-control" placeholder="000000000" value="<?php echo $cajeroEditar->serie ?>" />
 										</div>
 									</div>

@@ -106,7 +106,7 @@
 	</div>
 	<div class="table-responsive">
 		<?php if ($listadoCajeros) : ?>
-			<table class="table">
+			<table class="table" id="tableCajeros">
 				<thead>
 					<tr style="background-color: #097635;">
 						<th class="text-center">ID</th>

@@ -108,7 +108,7 @@
 
 	<div class="table-responsive">
 		<?php if ($listadoCorresponsales) : ?>
-			<table class="table">
+			<table class="table" id="tableCorresponsales">
 				<thead>
 					<tr style="background-color: #097635;">
 						<th class="text-center">ID</th>

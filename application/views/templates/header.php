@@ -66,6 +66,19 @@
 	<!-- español fileinput -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.8/js/locales/es.min.js"></script>
 	<script src="<?= base_url('js/fileInput.js') ?>"></script>
+	<!-- FAwesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<!-- DataTables CSS -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" />
+	<!-- DataTables Buttons CSS -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css" />
+	<!-- DataTables JS -->
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+	<!-- DataTables Buttons JS -->
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.1.1/js/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.1.1/js/buttons.html5.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.1.1/js/buttons.print.min.js"></script>
+	<script src="<?= base_url('js/pagination.js') ?>"></script>
 </head>
 <style>
 	label.error {
@@ -74,7 +87,6 @@
 		font-weight: semibold;
 		padding-left: 5px;
 		display: block;
-		/* Cambia a bloque para colocar debajo del input */
 	}
 
 	input.error,
@@ -82,20 +94,14 @@
 	textarea.error {
 		border: 1px solid red;
 	}
-
 	.error-message {
-		/* Clase adicional para estilo del mensaje de error */
 		color: red;
 		font-size: 12px;
 		font-weight: semibold;
 		padding-top: 5px;
-		/* Espaciado superior para separar del campo */
 	}
-
-	/* Estilo para el ícono cuando hay error */
 	.input-group.error .input-group-text {
 		color: red;
-		/* Cambia el color del ícono a rojo */
 	}
 </style>
 

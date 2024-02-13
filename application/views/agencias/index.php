@@ -161,7 +161,7 @@
 	</div>
 	<div class="table-responsive">
 		<?php if ($listadoAgencias) : ?>
-			<table class="table w-100">
+			<table class="table w-100" id="tableAgencias">
 				<thead>
 					<tr style="background-color: #097635;">
 						<th class="text-center">ID</th>

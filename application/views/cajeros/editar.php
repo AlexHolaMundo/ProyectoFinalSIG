@@ -17,38 +17,43 @@
 									<div class="input-group input-group-merge">
 										<span class="input-group-text"><i class="bx bxs-map-alt"></i></span>
 										<select id="id_agencia" name="id_agencia" class="form-select">
-											<option value="">Seleccione una agencia</option>
+											<option value="" disabled>Seleccione una agencia</option>
 											<?php foreach ($listadoAgencias as $agencia) : ?>
 												<option value="<?php echo $agencia->idAgencia; ?>" <?php if (isset($cajeroEditar->idAgencia) && $cajeroEditar->idAgencia == $agencia->idAgencia) echo 'selected'; ?>><?php echo $agencia->nombre; ?></option>
 											<?php endforeach; ?>
 										</select>
+										<label id="nombre-error" class="error error-message" for="nombre"></label>
 									</div>
 								</div>
 
 								<div class="row">
 									<div class="col-md-6">
 										<div class="mb-3">
-											<label class="form-label" for="">Estado</label>
+											<label class="form-label" for="estado">Estado</label>
 											<div class="input-group input-group-merge">
-												<span id="" class="input-group-text"><i class="bx bx-cog"></i></span>
-												<select type="text" class="form-select" id="estado" name="estado" placeholder="Activo" value="<?php echo $cajeroEditar->estado ?>">
-													<option value="activo">Activo</option>
-													<option value="inactivo">Inactivo</option>
-													<option value="mantenimiento">En mantenimiento</option>
-													<option value="fueraServicio">Fuera de Servicio</option>
+												<span id="estado" class="input-group-text"><i class="bx bx-cog"></i></span>
+												<select class="form-select" id="estado" name="estado">
+													<option value="activo" <?php if ($cajeroEditar->estado == 'activo') echo 'selected'; ?>>Activo</option>
+													<option value="inactivo" <?php if ($cajeroEditar->estado == 'inactivo') echo 'selected'; ?>>Inactivo</option>
+													<option value="mantenimiento" <?php if ($cajeroEditar->estado == 'mantenimiento') echo 'selected'; ?>>En mantenimiento</option>
+													<option value="fueraServicio" <?php if ($cajeroEditar->estado == 'fueraServicio') echo 'selected'; ?>>Fuera de Servicio</option>
 												</select>
 											</div>
+											<label id="estado-error" class="error error-message" for="estado"></label>
 										</div>
+
 										<div class="mb-3">
-											<label class="form-label" for="">Tipo</label>
+											<label class="form-label" for="tipo">Tipo</label>
 											<div class="input-group input-group-merge">
-												<span id="" class="input-group-text"><i class="bx bx-caret-right"></i></span>
-												<select type="text" id="tipo" name="tipo" class="form-select" placeholder="Cash" value="<?php echo $cajeroEditar->tipo ?>">
-													<option value="cash">Cash</option>
-													<option value="cheque">Full</option>
+												<span id="tipo" class="input-group-text"><i class="bx bx-caret-right"></i></span>
+												<select id="tipo" name="tipo" class="form-select">
+													<option value="cash" <?php if ($cajeroEditar->tipo == 'cash') echo 'selected'; ?>>Cash</option>
+													<option value="full" <?php if ($cajeroEditar->tipo == 'full') echo 'selected'; ?>>Full</option>
 												</select>
 											</div>
+											<label id="tipo-error" class="error error-message" for="tipo"></label>
 										</div>
+
 									</div>
 									<div class="col-md-6">
 										<div class="mb-3">
@@ -57,6 +62,7 @@
 												<span class="input-group-text"><i class="bx bxs-map-alt"></i></span>
 												<input type="text" id="provincia" name="provincia" class="form-control" placeholder="El Oro" value="<?php echo $cajeroEditar->provincia ?>" />
 											</div>
+											<label id="provincia-error" class="error error-message" for="provincia"></label>
 										</div>
 										<div class="mb-3">
 											<label class="form-label" for="">Ciudad</label>
@@ -64,6 +70,7 @@
 												<span id="" class="input-group-text"><i class="bx bx-buildings"></i></span>
 												<input type="text" id="ciudad" name="ciudad" class="form-control" placeholder="Machala" value="<?php echo $cajeroEditar->ciudad ?>" />
 											</div>
+											<label id="ciudad-error" class="error error-message" for="ciudad"></label>
 										</div>
 									</div>
 								</div>
@@ -93,6 +100,7 @@
 												<span id="" class="input-group-text"><i class="bx bx-globe"></i></span>
 												<input type="text" id="latitudCajero" name="latitudCajero" class="form-control" placeholder="000000000000000" readonly value="<?php echo $cajeroEditar->latitudCajero ?>" />
 											</div>
+											<label id="latitudCajero-error" class="error error-message" for="latitudCajero"></label>
 										</div>
 									</div>
 									<div class="col-md-6">
@@ -102,6 +110,7 @@
 												<span id="" class="input-group-text"><i class="bx bx-globe"></i></span>
 												<input type="text" id="longitudCajero" name="longitudCajero" class="form-control" placeholder="000000000000000" readonly value="<?php echo $cajeroEditar->longitudCajero ?>" />
 											</div>
+											<label id="longitudCajero-error" class="error error-message" for="longitudCajero"></label>
 										</div>
 									</div>
 								</div>

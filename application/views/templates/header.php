@@ -16,10 +16,6 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.3/dist/sweetalert2.min.css">
 	<!-- SweetAlert2 JS -->
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.3/dist/sweetalert2.all.min.js"></script>
-	<!-- jQuery Validate -->
-	<script src="<?= base_url('libs/jquery-validate/jquery.validate.js') ?>"></script>
-	<!-- jQuery Validate Addition Schemas -->
-	<script src="<?= base_url('js/formSchemas.js') ?>"></script>
 	<!-- Favicon -->
 	<link rel="icon" type="image/x-icon" href="https://www.bancomachala.com/favicon.png" />
 	<!-- Fonts -->
@@ -52,7 +48,38 @@
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqMDMrp8yZDRwwhG7ESbyCPFu_o_InLgk&libraries=places&callback=initMap"></script>
 
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 </head>
+<style>
+	label.error {
+		color: red;
+		font-size: 12px;
+		font-weight: semibold;
+		padding-left: 5px;
+		display: block;
+		/* Cambia a bloque para colocar debajo del input */
+	}
+
+	input.error,
+	select.error,
+	textarea.error {
+		border: 1px solid red;
+	}
+
+	.error-message {
+		/* Clase adicional para estilo del mensaje de error */
+		color: red;
+		font-size: 12px;
+		font-weight: semibold;
+		padding-top: 5px;
+		/* Espaciado superior para separar del campo */
+	}
+	/* Estilo para el ícono cuando hay error */
+.input-group.error .input-group-text {
+    color: red; /* Cambia el color del ícono a rojo */
+}
+
+</style>
 
 <body>
 	<!-- Layout wrapper -->

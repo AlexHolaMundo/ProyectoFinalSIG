@@ -16,11 +16,12 @@
 									<div class="input-group input-group-merge">
 										<span class="input-group-text"><i class="bx bxs-map-alt"></i></span>
 										<select id="id_agencia" name="id_agencia" class="form-select">
-											<option value="">Seleccione una agencia</option>
+											<option value="" disabled>Seleccione una agencia</option>
 											<?php foreach ($listadoAgencias as $agencia) : ?>
 												<option value="<?php echo $agencia->idAgencia; ?>"><?php echo $agencia->nombre; ?></option>
 											<?php endforeach; ?>
 										</select>
+										<label id="nombre-error" class="error error-message" for="nombre"></label>
 									</div>
 								</div>
 								<div class="row">
@@ -36,6 +37,7 @@
 													<option value="fueraServicio">Fuera de Servicio</option>
 												</select>
 											</div>
+											<label id="estado-error" class="error error-message" for="estado"></label>
 										</div>
 										<div class="mb-3">
 											<label class="form-label" for="">Tipo</label>
@@ -43,9 +45,10 @@
 												<span id="" class="input-group-text"><i class="bx bx-caret-right"></i></span>
 												<select type="text" id="tipo" name="tipo" class="form-select" placeholder="Cash">
 													<option value="cash">Cash</option>
-													<option value="cheque">Full</option>
+													<option value="full">Full</option>
 												</select>
 											</div>
+											<label id="tipo-error" class="error error-message" for="tipo"></label>
 										</div>
 									</div>
 									<div class="col-md-6">
@@ -55,6 +58,7 @@
 												<span class="input-group-text"><i class="bx bxs-map-alt"></i></span>
 												<input type="text" id="provincia" name="provincia" class="form-control" placeholder="El Oro" />
 											</div>
+											<label id="provincia-error" class="error error-message" for="provincia"></label>
 										</div>
 										<div class="mb-3">
 											<label class="form-label" for="">Ciudad</label>
@@ -62,6 +66,7 @@
 												<span id="" class="input-group-text"><i class="bx bx-buildings"></i></span>
 												<input type="text" id="ciudad" name="ciudad" class="form-control" placeholder="Machala" />
 											</div>
+											<label id="ciudad-error" class="error error-message" for="ciudad"></label>
 										</div>
 
 									</div>
@@ -73,6 +78,7 @@
 											<span id="" class="input-group-text"><i class="bx bx-image-add"></i></span>
 											<input type="file" id="fotografia" name="fotografia" accept="img/*" class="form-control" />
 										</div>
+										<label id="fotografia-error" class="error error-message" for="fotografia"></label>
 									</div>
 								</div>
 								<div class="row">
@@ -83,6 +89,7 @@
 												<span id="" class="input-group-text"><i class="bx bx-globe"></i></span>
 												<input type="text" id="latitudCajero" name="latitudCajero" class="form-control" placeholder="000000000000000" readonly />
 											</div>
+											<label id="latitudCajero-error" class="error error-message" for="latitudCajero"></label>
 										</div>
 									</div>
 									<div class="col-md-6">
@@ -92,6 +99,7 @@
 												<span id="" class="input-group-text"><i class="bx bx-globe"></i></span>
 												<input type="text" id="longitudCajero" name="longitudCajero" class="form-control" placeholder="000000000000000" readonly />
 											</div>
+											<label id="longitudCajero-error" class="error error-message" for="longitudCajero"></label>
 										</div>
 									</div>
 								</div>

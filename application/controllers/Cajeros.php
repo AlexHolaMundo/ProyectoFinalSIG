@@ -63,14 +63,18 @@ class Cajeros extends CI_Controller
 	}
 
 	//Editar un cajero
+	//Editar un cajero
 	public function editar($id)
 	{
 		$data['cajeroEditar'] = $this->Cajero->obtenerPorId($id);
 		$data['listadoAgencias'] = $this->Agencia->consultarTodos();
+		// Cargar los datos actualizados del cajero en la vista de edición
+		$data['cajeroActualizado'] = $this->Cajero->obtenerPorId($id); // Obtener datos actualizados del cajero
 		$this->load->view('../views/templates/header');
 		$this->load->view('cajeros/editar', $data);
 		$this->load->view('../views/templates/footer');
 	}
+
 
 	//Actualizar un cajero
 	public function actualizarCajero()

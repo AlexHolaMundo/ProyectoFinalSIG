@@ -20,6 +20,7 @@
 												<span id="" class="input-group-text"><i class="bx bx-building-house"></i></span>
 												<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Agencia Example" value="<?php echo $agenciaEditar->nombre ?>" />
 											</div>
+											<label id="nombre-error" class="error error-message" for="nombre"></label>
 										</div>
 									</div>
 									<div class="col-md-6">
@@ -29,6 +30,7 @@
 												<span id="" class="input-group-text"><i class="bx bxs-map"></i></span>
 												<input type="text" id="direccion" name="direccion" class="form-control" placeholder="Av. Example" value="<?php echo $agenciaEditar->direccion ?>" />
 											</div>
+											<label id="direccion-error" class="error error-message" for="direccion"></label>
 										</div>
 									</div>
 								</div>
@@ -41,6 +43,7 @@
 												<input type="text" id="email" name="email" class="form-control" placeholder="alguien.genial" value="<?php echo $agenciaEditar->email ?>" />
 												<span id="" class="input-group-text">@example.com</span>
 											</div>
+											<label id="email-error" class="error error-message" for="email"></label>
 										</div>
 									</div>
 									<div class="col-md-6">
@@ -50,6 +53,7 @@
 												<span id="" class="input-group-text"><i class="bx bx-phone"></i></span>
 												<input type="text" id="telefono" name="telefono" class="form-control" placeholder="000 000 0000" value="<?php echo $agenciaEditar->telefono ?>" />
 											</div>
+											<label id="telefono-error" class="error error-message" for="telefono"></label>
 										</div>
 									</div>
 								</div>
@@ -61,6 +65,7 @@
 												<span id="" class="input-group-text"><i class="bx bxs-city"></i></span>
 												<input type="text" id="ciudad" name="ciudad" class="form-control" placeholder="Ciudad Example" value="<?php echo $agenciaEditar->ciudad ?>" />
 											</div>
+											<label id="ciudad-error" class="error error-message" for="ciudad"></label>
 										</div>
 									</div>
 									<div class="col-md-6">
@@ -70,6 +75,7 @@
 												<span id="" class="input-group-text"><i class="bx bxs-map-alt"></i></span>
 												<input type="text" id="provincia" name="provincia" class="form-control" placeholder="Provincia Example" value="<?php echo $agenciaEditar->provincia ?>" />
 											</div>
+											<label id="provincia-error" class="error error-message" for="provincia"></label>
 										</div>
 									</div>
 								</div>
@@ -81,6 +87,7 @@
 												<span id="" class="input-group-text"><i class="bx bxs-calendar"></i></span>
 												<input type="date" class="form-control" id="fechaInaguracion" name="fechaInaguracion" value="<?php echo $agenciaEditar->fechaInaguracion ?>" />
 											</div>
+											<label id="fechaInaguracion-error" class="error error-message" for="fechaInaguracion"></label>
 										</div>
 									</div>
 									<div class="col-md-6">
@@ -90,6 +97,7 @@
 												<span id="" class="input-group-text"><i class="bx bx-time-five"></i></span>
 												<input type="text" id="horario" name="horario" class="form-control" placeholder="Lunes - Viernes 00:00 AM - 00:00 PM" value="<?php echo $agenciaEditar->horario ?>" />
 											</div>
+											<label id="horario-error" class="error error-message" for="horario"></label>
 										</div>
 									</div>
 								</div>
@@ -101,6 +109,7 @@
 												<span class="input-group-text"><i class="bx bx-time-five"></i></span>
 												<input type="text" id="horarioDiferido" name="horarioDiferido" class="form-control" placeholder="Sabados - Domingos 00:00 AM - 00:00 PM" value="<?php echo $agenciaEditar->horarioDiferido ?>" />
 											</div>
+											<label id="horarioDiferido-error" class="error error-message" for="horarioDiferido"></label>
 										</div>
 									</div>
 								</div>
@@ -121,6 +130,7 @@
 										<span id="" class="input-group-text"><i class="bx bx-image-add"></i></span>
 										<input type="file" class="form-control" id="nueva_foto_age" name="nueva_foto_age">
 									</div>
+									<label id="fotografia-error" class="error error-message" for="fotografia"></label>
 								</div>
 								<div class="row">
 									<div class="col-md-6">
@@ -130,6 +140,7 @@
 												<span id="" class="input-group-text"><i class="bx bx-globe"></i></span>
 												<input type="text" id="latitudAgencia" name="latitudAgencia" class="form-control" placeholder="000000000000000" readonly value="<?php echo $agenciaEditar->longitudAgencia ?>"/>
 											</div>
+											<label id="latitudAgencia-error" class="error error-message" for="latitudAgencia"></label>
 										</div>
 									</div>
 									<div class="col-md-6">
@@ -139,6 +150,7 @@
 												<span id="" class="input-group-text"><i class="bx bx-globe"></i></span>
 												<input type="text" id="longitudAgencia" name="longitudAgencia" class="form-control" placeholder="000000000000000" readonly value="<?php echo $agenciaEditar->longitudAgencia ?>"/>
 											</div>
+											<label id="longitudAgencia-error" class="error error-message" for="longitudAgencia"></label>
 										</div>
 									</div>
 								</div>

@@ -19,6 +19,7 @@
 												<span id="" class="input-group-text"><i class="bx bx-buildings"></i></span>
 												<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Corresponsal Example" aria-la />
 											</div>
+											<label id="nombre-error" class="error error-message" for="nombre"></label>
 										</div>
 										<div class="mb-3">
 											<label class="form-label" for="">Direccion</label>
@@ -26,6 +27,7 @@
 												<span id="" class="input-group-text"><i class="bx bxs-map"></i></span>
 												<input type="text" id="direccion" name="direccion" class="form-control" placeholder="Av. Example" />
 											</div>
+											<label id="direccion-error" class="error error-message" for="direccion"></label>
 										</div>
 									</div>
 									<div class="col-md-6">
@@ -35,6 +37,7 @@
 												<span id="" class="input-group-text"><i class="bx bx-phone"></i></span>
 												<input type="text" id="telefono" name="telefono" class="form-control" placeholder="000 000 0000" />
 											</div>
+											<label id="telefono-error" class="error error-message" for="telefono"></label>
 										</div>
 										<div class="mb-3">
 											<label class="form-label" for="">Horario</label>
@@ -42,6 +45,7 @@
 												<span id="" class="input-group-text"><i class="bx bx-time-five"></i></span>
 												<input type="text" id="horario" name="horario" class="form-control" placeholder="Lunes - Viernes 00:00 AM - 00:00 PM" />
 											</div>
+											<label id="horario-error" class="error error-message" for="horario"></label>
 										</div>
 									</div>
 								</div>
@@ -52,6 +56,7 @@
 												<span id="" class="input-group-text"><i class="bx bx-image-add"></i></span>
 												<input type="file" id="fotografia" name="fotografia" accept="img/*" class="form-control" />
 										</div>
+										<label id="fotografia-error" class="error error-message" for="fotografia"></label>
 									</div>
 								</div>
 								<div class="row">
@@ -62,6 +67,7 @@
 												<span class="input-group-text"><i class="bx bx-text"></i></span>
 												<textarea type="text" id="descripcion" name="descripcion" class="form-control" placeholder="Alguna descripcion"></textarea>
 											</div>
+											<label id="descripcion-error" class="error error-message" for="descripcion"></label>
 										</div>
 									</div>
 									<div class="col-md-6">
@@ -69,8 +75,9 @@
 											<label class="form-label" for="">Latitud</label>
 											<div class="input-group input-group-merge">
 												<span id="" class="input-group-text"><i class="bx bx-globe"></i></span>
-												<input type="text" id="latitud" name="latitud" class="form-control" placeholder="000000000000000" readonly />
+												<input type="text" id="latitudCorresponsal" name="latitudCorresponsal" class="form-control" placeholder="000000000000000" readonly />
 											</div>
+											<label id="latitudCorresponsal-error" class="error error-message" for="latitudCorresponsal"></label>
 										</div>
 									</div>
 									<div class="col-md-6">
@@ -78,8 +85,9 @@
 											<label class="form-label" for="">Longitud</label>
 											<div class="input-group input-group-merge">
 												<span id="" class="input-group-text"><i class="bx bx-globe"></i></span>
-												<input type="text" id="longitud" name="longitud" class="form-control" placeholder="000000000000000" readonly />
+												<input type="text" id="longitudCorresponsal" name="longitudCorresponsal" class="form-control" placeholder="000000000000000" readonly />
 											</div>
+											<label id="longitudCorresponsal-error" class="error error-message" for="longitudCorresponsal"></label>
 										</div>
 									</div>
 								</div>

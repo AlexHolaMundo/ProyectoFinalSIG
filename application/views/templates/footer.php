@@ -50,6 +50,10 @@
 <!-- español fileinput -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.8/js/locales/es.min.js"></script>
 <script src="<?= base_url('js/fileInput.js') ?>"></script>
+<!-- jQuery Validate -->
+		<script src="<?= base_url('libs/jquery-validate/jquery.validate.js') ?>"></script>
+		<!-- jQuery Validate Addition Schemas -->
+		<script src="<?= base_url('js/formSchemas.js') ?>"></script>
 </body>
 
 </html>

@@ -51,8 +51,8 @@ class Agencias extends CI_Controller
 			"horario" => $this->input->post("horario"),
 			"horarioDiferido" => $this->input->post("horarioDiferido"),
 			"fotografia" => $nombre_archivo_subido,
-			"latitud" => $this->input->post("latitud"),
-			"longitud" => $this->input->post("longitud")
+			"latitudAgencia" => $this->input->post("latitudAgencia"),
+			"longitudAgencia" => $this->input->post("longitudAgencia")
 		);
 		$this->Agencia->insertar($datosNuevoAgencia);
 		$this->session->set_flashdata('alerta', 'Agencia guardada correctamente');

@@ -6,11 +6,12 @@
 				<div class="col-sm">
 					<div class="card mb-4">
 						<div class="card-header d-flex justify-content-between align-items-center">
-							<h5 class="mb-0">Registro de Cajeros</h5>
+							<h5 class="mb-0">Editar Cajero</h5>
 							<small class="text-muted float-end">Cajeros</small>
 						</div>
 						<div class="card-body">
-							<form action="<?php echo site_url('cajeros/guardar'); ?>" method="POST" enctype="multipart/form-data" id="formCajeros">
+							<form action="<?php echo site_url('cajeros/actualizarCajero'); ?>" method="POST" enctype="multipart/form-data" id="formCajeros">
+								<input type="hidden" name="idAgencia" id="idCajero" value="<?php echo $cajeroEditar->idCajero ?>">
 								<div class="mb-3">
 									<label class="form-label" for="id_agencia">Nombre Agencia</label>
 									<div class="input-group input-group-merge">
@@ -18,7 +19,7 @@
 										<select id="id_agencia" name="id_agencia" class="form-select">
 											<option value="">Seleccione una agencia</option>
 											<?php foreach ($listadoAgencias as $agencia) : ?>
-												<option value="<?php echo $agencia->idAgencia; ?>"><?php echo $agencia->nombre; ?></option>
+												<option value="<?php echo $agencia->idAgencia; ?>" <?php if (isset($cajeroEditar->id_agencia) && $agencia->idAgencia == $cajeroEditar->id_agencia) echo 'selected'; ?>><?php echo $agencia->nombre; ?></option>
 											<?php endforeach; ?>
 										</select>
 									</div>
@@ -29,7 +30,7 @@
 											<label class="form-label" for="">Estado</label>
 											<div class="input-group input-group-merge">
 												<span id="" class="input-group-text"><i class="bx bx-cog"></i></span>
-												<select type="text" class="form-select" id="estado" name="estado" placeholder="Activo" aria-la>
+												<select type="text" class="form-select" id="estado" name="estado" placeholder="Activo" value="<?php echo $cajeroEditar->estado ?>">
 													<option value="activo">Activo</option>
 													<option value="inactivo">Inactivo</option>
 													<option value="mantenimiento">En mantenimiento</option>
@@ -41,7 +42,7 @@
 											<label class="form-label" for="">Tipo</label>
 											<div class="input-group input-group-merge">
 												<span id="" class="input-group-text"><i class="bx bx-caret-right"></i></span>
-												<select type="text" id="tipo" name="tipo" class="form-select" placeholder="Cash">
+												<select type="text" id="tipo" name="tipo" class="form-select" placeholder="Cash" value="<?php echo $cajeroEditar->tipo ?>">
 													<option value="cash">Cash</option>
 													<option value="cheque">Full</option>
 												</select>
@@ -53,26 +54,34 @@
 											<label class="form-label" for="">Provincia</label>
 											<div class="input-group input-group-merge">
 												<span class="input-group-text"><i class="bx bxs-map-alt"></i></span>
-												<input type="text" id="provincia" name="provincia" class="form-control" placeholder="El Oro" />
+												<input type="text" id="provincia" name="provincia" class="form-control" placeholder="El Oro" value="<?php echo $cajeroEditar->provincia ?>" />
 											</div>
 										</div>
 										<div class="mb-3">
 											<label class="form-label" for="">Ciudad</label>
 											<div class="input-group input-group-merge">
 												<span id="" class="input-group-text"><i class="bx bx-buildings"></i></span>
-												<input type="text" id="ciudad" name="ciudad" class="form-control" placeholder="Machala" />
+												<input type="text" id="ciudad" name="ciudad" class="form-control" placeholder="Machala" value="<?php echo $cajeroEditar->ciudad ?>" />
 											</div>
 										</div>
-
 									</div>
 								</div>
 								<div class="row">
-									<div class="col-md-12">
+									<div class="col-md-6">
 										<div class="mb-3">
-											<label class="form-label" for="">Fotografia</label>
-											<span id="" class="input-group-text"><i class="bx bx-image-add"></i></span>
-											<input type="file" id="fotografia" name="fotografia" accept="img/*" class="form-control" />
+											<label class="form-label" for="">Fotografia Actual</label>
+											<br>
+											<?php if ($cajeroEditar->fotografia) : ?>
+												<img src="<?php echo base_url('uploads/cajeros/') . $cajeroEditar->fotografia; ?>" alt="Fotografía Actual" style="max-width: 200px;" />
+											<?php else : ?>
+												<p>No hay fotografía disponible</p>
+											<?php endif; ?>
 										</div>
+									</div>
+									<div class="col-md-6">
+										<label class="form-label" for="">Actualizar Fotografia (Opcional)</label>
+										<span id="" class="input-group-text"><i class="bx bx-image-add"></i></span>
+										<input type="file" class="form-control" id="nueva_foto_caj" name="nueva_foto_caj">
 									</div>
 								</div>
 								<div class="row">
@@ -81,7 +90,7 @@
 											<label class="form-label" for="">Latitud</label>
 											<div class="input-group input-group-merge">
 												<span id="" class="input-group-text"><i class="bx bx-globe"></i></span>
-												<input type="text" id="latitudCajero" name="latitudCajero" class="form-control" placeholder="000000000000000" readonly />
+												<input type="text" id="latitudCajero" name="latitudCajero" class="form-control" placeholder="000000000000000" readonly value="<?php echo $cajeroEditar->latitudCajero ?>" />
 											</div>
 										</div>
 									</div>
@@ -90,7 +99,7 @@
 											<label class="form-label" for="">Longitud</label>
 											<div class="input-group input-group-merge">
 												<span id="" class="input-group-text"><i class="bx bx-globe"></i></span>
-												<input type="text" id="longitudCajero" name="longitudCajero" class="form-control" placeholder="000000000000000" readonly />
+												<input type="text" id="longitudCajero" name="longitudCajero" class="form-control" placeholder="000000000000000" readonly value="<?php echo $cajeroEditar->longitudCajero ?>" />
 											</div>
 										</div>
 									</div>
@@ -101,7 +110,8 @@
 										<div id="mapaCajeros" style="width: 100%; height:310px; border-radius:5px;"></div>
 									</div>
 								</div>
-								<button type="submit" class="btn btn-primary">Registrar</button>
+								<button type="submit" class="btn btn-primary">Actualizar</button>
+								<a type="" href="<?php echo site_url('cajeros/index'); ?>" class="btn btn-warning">Cancelar </a>
 							</form>
 						</div>
 					</div>
@@ -109,62 +119,9 @@
 			</div>
 		</div>
 	</div>
-		<div class="table-responsive">
-			<?php if ($listadoCajeros) : ?>
-				<table class="table">
-					<thead>
-						<tr style="background-color: #097635;">
-							<th class="text-center">ID</th>
-							<th class="text-center">NOMBRE AGENCIA</th>
-							<th class="text-center">ESTADO</th>
-							<th class="text-center">TIPO</th>
-							<th class="text-center">PROVINCIA</th>
-							<th class="text-center">CIUDAD</th>
-							<th class="text-center">FOTOGRAFIA</th>
-							<th class="text-center">LATITUD</th>
-							<th class="text-center">LONGITUD</th>
-							<th class="text-center">ACCIONES</th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php foreach ($listadoCajeros as $cajero) : ?>
-							<tr>
-								<td class="text-center"><?php echo $cajero->idCajero; ?></td>
-								<td class="text-center"><?php echo $cajero->nombreAgencia; ?></td>
-								<td class="text-center"><?php echo $cajero->estado; ?></td>
-								<td class="text-center"><?php echo $cajero->tipo; ?></td>
-								<td class="text-center"><?php echo $cajero->provincia; ?></td>
-								<td class="text-center w-25"><?php echo $cajero->ciudad; ?></td>
-								<td class="text-center">
-									<?php if ($cajero->fotografia != "") : ?>
-										<img src="<?php echo base_url('uploads/cajeros/') . $cajero->fotografia; ?>" height="50px" width="50px" alt="cajero">
-									<?php else : ?>
-										N/A
-									<?php endif; ?>
-								</td>
-								<td class="text-center"><?php echo $cajero->latitudCajero; ?></td>
-								<td class="text-center"><?php echo $cajero->longitudCajero; ?></td>
-								<td class="text-center">
-									<a href="<?php echo site_url('cajeros/borrar/') . $cajero->idCajero; ?>" class=" btn btn-outline-danger delete-btn" title="Eliminar">
-										<i class="bi bi-trash3-fill"></i>
-									</a>
-									<a href="<?php echo site_url('cajeros/editar/') . $cajero->idCajero; ?>" class=" btn btn-outline-warning" title="Editar">
-										<i class="bi bi-pen"></i>
-									</a>
-								</td>
-							</tr>
-						<?php endforeach; ?>
-					</tbody>
-				</table>
-			<?php else : ?>
-				<div class="alert alert-danger">
-					No se encontro cajeros registrados
-				</div>
-			<?php endif; ?>
-		</div>
 	<script>
 		function initMap() {
-			var coordenadaCentral = new google.maps.LatLng(-0.9171755208692692, -78.6328634793978);
+			var coordenadaCentral = new google.maps.LatLng(<?php echo $cajeroEditar->latitudCajero; ?>, <?php echo $cajeroEditar->longitudCajero; ?>);
 			var miMapa = new google.maps.Map(document.getElementById('mapaCajeros'), {
 				center: coordenadaCentral,
 				zoom: 13,

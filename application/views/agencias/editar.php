@@ -128,7 +128,7 @@
 											<label class="form-label" for="">Latitud</label>
 											<div class="input-group input-group-merge">
 												<span id="" class="input-group-text"><i class="bx bx-globe"></i></span>
-												<input type="text" id="latitud" name="latitud" class="form-control" placeholder="000000000000000" readonly value="<?php echo $agenciaEditar->latitudAgencia ?>" />
+												<input type="text" id="latitudAgencia" name="latitudAgencia" class="form-control" placeholder="000000000000000" readonly value="<?php echo $agenciaEditar->longitudAgencia ?>"/>
 											</div>
 										</div>
 									</div>
@@ -137,7 +137,7 @@
 											<label class="form-label" for="">Longitud</label>
 											<div class="input-group input-group-merge">
 												<span id="" class="input-group-text"><i class="bx bx-globe"></i></span>
-												<input type="text" id="longitud" name="longitud" class="form-control" placeholder="000000000000000" readonly value="<?php echo $agenciaEditar->longitudAgencia ?>" />
+												<input type="text" id="longitudAgencia" name="longitudAgencia" class="form-control" placeholder="000000000000000" readonly value="<?php echo $agenciaEditar->longitudAgencia ?>"/>
 											</div>
 										</div>
 									</div>

@@ -63,11 +63,12 @@ class Cajeros extends CI_Controller
 	}
 
 	//Editar un cajero
-	public function editar($idCajero)
+	public function editar($id)
 	{
-		$datosCajero = $this->Cajero->obtenerPorId($idCajero);
+		$data ['cajeroEditar']= $this->Cajero->obtenerPorId($id);
+		$data['listadoAgencias'] = $this->Agencia->consultarTodos();
 		$this->load->view('../views/templates/header');
-		$this->load->view('cajeros/editar', $datosCajero);
+		$this->load->view('cajeros/editar', $data);
 		$this->load->view('../views/templates/footer');
 	}
 
@@ -75,5 +76,55 @@ class Cajeros extends CI_Controller
 	public function actualizarCajero()
 	{
 		$idCajero = $this->input->post("idCajero");
+		// Obtener información del cajero antes de la actualización
+		$cajeroActual = $this->Cajero->obtenerPorId($idCajero);
+
+		// INICIO PROCESO DE SUBIDA DE ARCHIVO
+		$config['upload_path'] = APPPATH . '../uploads/cajeros/'; // ruta de subida de archivos
+		$config['allowed_types'] = 'jpeg|jpg|png'; // tipo de archivos permitidos
+		$config['max_size'] = 5 * 1024; // definir el peso máximo de subida (5MB)
+
+		// Verificar si se está intentando subir una nueva foto
+		if ($_FILES['nueva_foto_caj']['error'] != 4) { // Error 4 significa que no se seleccionó ningún archivo
+			$nombre_aleatorio = "cajero_" . time() * rand(100, 10000); // creando un nombre aleatorio
+			$config['file_name'] = $nombre_aleatorio; // asignando el nombre al archivo subido
+
+			$this->load->library('upload', $config); // cargando la librería UPLOAD
+
+			if ($this->upload->do_upload("nueva_foto_caj")) { // intentando subir el nuevo archivo
+				$dataArchivoSubido = $this->upload->data(); // capturando información del archivo subido
+				$nombre_archivo_subido = $dataArchivoSubido["file_name"]; // obteniendo el nombre del archivo
+				// Eliminar la foto anterior si existe
+				if (!empty($cajeroActual->foto_hos)) {
+					$ruta_foto_anterior = APPPATH . '../uploads/cajeros/' . $cajeroActual->foto_caj;
+					if (file_exists($ruta_foto_anterior)) {
+						unlink($ruta_foto_anterior);
+					}
+				}
+			} else {
+				$nombre_archivo_subido = $cajeroActual->fotografia; // Conservar la foto actual si la subida falla
+			}
+		} else {
+			$nombre_archivo_subido = $cajeroActual->fotografia; // Conservar la foto actual si no se selecciona una nueva
+		}
+		// Obtener el nombre de la agencia seleccionada
+		$idAgencia = $this->input->post("id_agencia");
+		$agencia = $this->Agencia->obtenerPorId($idAgencia);
+		$nombreAgencia = ($agencia) ? $agencia->nombre : "";
+		//Datos Actualizados del cajero
+		$datosCajero = array(
+			"estado" => $this->input->post("estado"),
+			"tipo" => $this->input->post("tipo"),
+			"provincia" => $this->input->post("provincia"),
+			"ciudad" => $this->input->post("ciudad"),
+			"fotografia" => $nombre_archivo_subido,
+			"latitudCajero" => $this->input->post("latitudCajero"),
+			"longitudCajero" => $this->input->post("longitudCajero"),
+			"idAgencia" => $this->input->post("id_agencia"),
+			"nombreAgencia" => $nombreAgencia
+		);
+		$this->Cajero->actualizar($idCajero, $datosCajero);
+		$this->session->set_flashdata('alerta', 'Cajero actualizado correctamente');
+		redirect('cajeros/index');
 	}
 }

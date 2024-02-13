@@ -19,11 +19,12 @@
 										<select id="id_agencia" name="id_agencia" class="form-select">
 											<option value="">Seleccione una agencia</option>
 											<?php foreach ($listadoAgencias as $agencia) : ?>
-												<option value="<?php echo $agencia->idAgencia; ?>" <?php if (isset($cajeroEditar->id_agencia) && $agencia->idAgencia == $cajeroEditar->id_agencia) echo 'selected'; ?>><?php echo $agencia->nombre; ?></option>
+												<option value="<?php echo $agencia->idAgencia; ?>" <?php if (isset($cajeroEditar->idAgencia) && $cajeroEditar->idAgencia == $agencia->idAgencia) echo 'selected'; ?>><?php echo $agencia->nombre; ?></option>
 											<?php endforeach; ?>
 										</select>
 									</div>
 								</div>
+
 								<div class="row">
 									<div class="col-md-6">
 										<div class="mb-3">

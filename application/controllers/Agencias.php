@@ -89,8 +89,8 @@ class Agencias extends CI_Controller
 				$dataArchivoSubido = $this->upload->data(); // capturando información del archivo subido
 				$nombre_archivo_subido = $dataArchivoSubido["file_name"]; // obteniendo el nombre del archivo
 				// Eliminar la foto anterior si existe
-				if (!empty($agenciaActual->foto_hos)) {
-					$ruta_foto_anterior = APPPATH . '../uploads/agencias/' . $agenciaActual->foto_hos;
+				if (!empty($agenciaActual->fotografia)) {
+					$ruta_foto_anterior = APPPATH . '../uploads/agencias/' . $agenciaActual->fotografia;
 					if (file_exists($ruta_foto_anterior)) {
 						unlink($ruta_foto_anterior);
 					}

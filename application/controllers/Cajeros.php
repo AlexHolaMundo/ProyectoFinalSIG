@@ -65,7 +65,7 @@ class Cajeros extends CI_Controller
 	//Editar un cajero
 	public function editar($id)
 	{
-		$data ['cajeroEditar']= $this->Cajero->obtenerPorId($id);
+		$data['cajeroEditar'] = $this->Cajero->obtenerPorId($id);
 		$data['listadoAgencias'] = $this->Agencia->consultarTodos();
 		$this->load->view('../views/templates/header');
 		$this->load->view('cajeros/editar', $data);
@@ -95,8 +95,8 @@ class Cajeros extends CI_Controller
 				$dataArchivoSubido = $this->upload->data(); // capturando información del archivo subido
 				$nombre_archivo_subido = $dataArchivoSubido["file_name"]; // obteniendo el nombre del archivo
 				// Eliminar la foto anterior si existe
-				if (!empty($cajeroActual->foto_hos)) {
-					$ruta_foto_anterior = APPPATH . '../uploads/cajeros/' . $cajeroActual->foto_caj;
+				if (!empty($cajeroActual->fotografia)) {
+					$ruta_foto_anterior = APPPATH . '../uploads/cajeros/' . $cajeroActual->fotografia;
 					if (file_exists($ruta_foto_anterior)) {
 						unlink($ruta_foto_anterior);
 					}
@@ -120,7 +120,7 @@ class Cajeros extends CI_Controller
 			"fotografia" => $nombre_archivo_subido,
 			"latitudCajero" => $this->input->post("latitudCajero"),
 			"longitudCajero" => $this->input->post("longitudCajero"),
-			"idAgencia" => $this->input->post("id_agencia"),
+			"idAgencia" => $idAgencia,
 			"nombreAgencia" => $nombreAgencia
 		);
 		$this->Cajero->actualizar($idCajero, $datosCajero);

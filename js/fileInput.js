@@ -23,3 +23,12 @@ $(document).ready(function () {
 		language: "es",
 	});
 });
+
+//fileinput Corresponsal
+$(document).ready(function () {
+	$("#nueva_foto_cor").fileinput({
+		showUpload: true,
+		showRemove: true,
+		language: "es",
+	});
+});

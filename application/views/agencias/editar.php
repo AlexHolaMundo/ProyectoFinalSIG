@@ -6,18 +6,19 @@
 				<div class="col-sm">
 					<div class="card mb-4">
 						<div class="card-header d-flex justify-content-between align-items-center">
-							<h5 class="mb-0">Registro de Agencias</h5>
+							<h5 class="mb-0">Editar Agencia</h5>
 							<small class="text-muted float-end">Agencias/Sucursales</small>
 						</div>
 						<div class="card-body">
-							<form action="<?php echo site_url('agencias/guardar'); ?>" method="POST" enctype="multipart/form-data" id="formAgencias">
+							<form action="<?php echo site_url('agencias/actualizarAgencia'); ?>" method="POST" enctype="multipart/form-data" id="formAgencias">
+								<input type="hidden" name="idAgencia" id="idAgencia" value="<?php echo $agenciaEditar->idAgencia ?>">
 								<div class="row">
 									<div class="col-md-6">
 										<div class="mb-3">
 											<label class="form-label" for="">Nombre de la agencia</label>
 											<div class="input-group input-group-merge">
 												<span id="" class="input-group-text"><i class="bx bx-building-house"></i></span>
-												<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Agencia Example" aria-la />
+												<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Agencia Example" value="<?php echo $agenciaEditar->nombre ?>" />
 											</div>
 										</div>
 									</div>
@@ -26,7 +27,7 @@
 											<label class="form-label" for="">Direccion</label>
 											<div class="input-group input-group-merge">
 												<span id="" class="input-group-text"><i class="bx bxs-map"></i></span>
-												<input type="text" id="direccion" name="direccion" class="form-control" placeholder="Av. Example" />
+												<input type="text" id="direccion" name="direccion" class="form-control" placeholder="Av. Example" value="<?php echo $agenciaEditar->direccion ?>" />
 											</div>
 										</div>
 									</div>
@@ -37,7 +38,7 @@
 											<label class="form-label" for="">Email</label>
 											<div class="input-group input-group-merge">
 												<span class="input-group-text"><i class="bx bx-envelope"></i></span>
-												<input type="text" id="email" name="email" class="form-control" placeholder="alguien.genial" />
+												<input type="text" id="email" name="email" class="form-control" placeholder="alguien.genial" value="<?php echo $agenciaEditar->email ?>" />
 												<span id="" class="input-group-text">@example.com</span>
 											</div>
 										</div>
@@ -47,7 +48,7 @@
 											<label class="form-label" for="">Telefono</label>
 											<div class="input-group input-group-merge">
 												<span id="" class="input-group-text"><i class="bx bx-phone"></i></span>
-												<input type="text" id="telefono" name="telefono" class="form-control" placeholder="000 000 0000" />
+												<input type="text" id="telefono" name="telefono" class="form-control" placeholder="000 000 0000" value="<?php echo $agenciaEditar->telefono ?>" />
 											</div>
 										</div>
 									</div>
@@ -58,7 +59,7 @@
 											<label class="form-label" for="">Ciudad</label>
 											<div class="input-group input-group-merge">
 												<span id="" class="input-group-text"><i class="bx bxs-city"></i></span>
-												<input type="text" id="ciudad" name="ciudad" class="form-control" placeholder="Ciudad Example" />
+												<input type="text" id="ciudad" name="ciudad" class="form-control" placeholder="Ciudad Example" value="<?php echo $agenciaEditar->ciudad ?>" />
 											</div>
 										</div>
 									</div>
@@ -67,7 +68,7 @@
 											<label class="form-label" for="">Provincia</label>
 											<div class="input-group input-group-merge">
 												<span id="" class="input-group-text"><i class="bx bxs-map-alt"></i></span>
-												<input type="text" id="provincia" name="provincia" class="form-control" placeholder="Provincia Example" />
+												<input type="text" id="provincia" name="provincia" class="form-control" placeholder="Provincia Example" value="<?php echo $agenciaEditar->provincia ?>" />
 											</div>
 										</div>
 									</div>
@@ -78,7 +79,7 @@
 											<label class="form-label" for="">Fecha de Inaguracion</label>
 											<div class="input-group input-group-merge">
 												<span id="" class="input-group-text"><i class="bx bxs-calendar"></i></span>
-												<input type="date" class="form-control" id="fechaInaguracion" name="fechaInaguracion" />
+												<input type="date" class="form-control" id="fechaInaguracion" name="fechaInaguracion" value="<?php echo $agenciaEditar->fechaInaguracion ?>" />
 											</div>
 										</div>
 									</div>
@@ -87,7 +88,7 @@
 											<label class="form-label" for="">Horario</label>
 											<div class="input-group input-group-merge">
 												<span id="" class="input-group-text"><i class="bx bx-time-five"></i></span>
-												<input type="text" id="horario" name="horario" class="form-control" placeholder="Lunes - Viernes 00:00 AM - 00:00 PM" />
+												<input type="text" id="horario" name="horario" class="form-control" placeholder="Lunes - Viernes 00:00 AM - 00:00 PM" value="<?php echo $agenciaEditar->horario ?>" />
 											</div>
 										</div>
 									</div>
@@ -98,18 +99,27 @@
 											<label class="form-label" for="">Horario Diferido</label>
 											<div class="input-group input-group-merge">
 												<span class="input-group-text"><i class="bx bx-time-five"></i></span>
-												<input type="text" id="horarioDiferido" name="horarioDiferido" class="form-control" placeholder="Sabados - Domingos 00:00 AM - 00:00 PM" />
+												<input type="text" id="horarioDiferido" name="horarioDiferido" class="form-control" placeholder="Sabados - Domingos 00:00 AM - 00:00 PM" value="<?php echo $agenciaEditar->horarioDiferido ?>" />
 											</div>
 										</div>
 									</div>
 								</div>
 								<div class="row">
-									<div class="col-md-12">
+									<div class="col-md-6">
 										<div class="mb-3">
-											<label class="form-label" for="">Fotografia</label>
-												<span id="" class="input-group-text"><i class="bx bx-image-add"></i></span>
-												<input type="file" id="fotografia" name="fotografia" accept="img/*" class="form-control" />
+											<label class="form-label" for="">Fotografia Actual</label>
+											<br>
+											<?php if ($agenciaEditar->fotografia) : ?>
+												<img src="<?php echo base_url('uploads/agencias/') . $agenciaEditar->fotografia; ?>" alt="Fotografía Actual" style="max-width: 200px;" />
+											<?php else : ?>
+												<p>No hay fotografía disponible</p>
+											<?php endif; ?>
 										</div>
+									</div>
+									<div class="col-md-6">
+										<label class="form-label" for="">Actualizar Fotografia (Opcional)</label>
+										<span id="" class="input-group-text"><i class="bx bx-image-add"></i></span>
+										<input type="file" class="form-control" id="nueva_foto_age" name="nueva_foto_age">
 									</div>
 								</div>
 								<div class="row">
@@ -118,7 +128,7 @@
 											<label class="form-label" for="">Latitud</label>
 											<div class="input-group input-group-merge">
 												<span id="" class="input-group-text"><i class="bx bx-globe"></i></span>
-												<input type="text" id="latitudAgencia" name="latitudAgencia" class="form-control" placeholder="000000000000000" readonly />
+												<input type="text" id="latitud" name="latitud" class="form-control" placeholder="000000000000000" readonly value="<?php echo $agenciaEditar->latitudAgencia ?>" />
 											</div>
 										</div>
 									</div>
@@ -127,7 +137,7 @@
 											<label class="form-label" for="">Longitud</label>
 											<div class="input-group input-group-merge">
 												<span id="" class="input-group-text"><i class="bx bx-globe"></i></span>
-												<input type="text" id="longitudAgencia" name="longitudAgencia" class="form-control" placeholder="000000000000000" readonly />
+												<input type="text" id="longitud" name="longitud" class="form-control" placeholder="000000000000000" readonly value="<?php echo $agenciaEditar->longitudAgencia ?>" />
 											</div>
 										</div>
 									</div>
@@ -138,7 +148,8 @@
 										<div id="mapa" style="width: 100%; height:310px; border-radius:5px;"></div>
 									</div>
 								</div>
-								<button type="submit" class="btn btn-primary">Registrar</button>
+								<button type="submit" class="btn btn-primary">Actualizar</button>
+								<a type="" href="<?php echo site_url('agencias/index'); ?>" class="btn btn-warning">Cancelar </a>
 							</form>
 						</div>
 					</div>
@@ -146,70 +157,9 @@
 			</div>
 		</div>
 	</div>
-	<div class="table-responsive">
-		<?php if ($listadoAgencias) : ?>
-			<table class="table w-100">
-				<thead>
-					<tr style="background-color: #097635;">
-						<th class="text-center">ID</th>
-						<th class="text-center">NOMBRE</th>
-						<th class="text-center">DIRECCION</th>
-						<th class="text-center">EMAIL</th>
-						<th class="text-center">TELEFONO</th>
-						<th class="text-center">CIUDAD</th>
-						<th class="text-center">PROVINCIA</th>
-						<th class="text-center">FECHA INAGURACION</th>
-						<th class="text-center">HORARIO</th>
-						<th class="text-center">HORARRIO DIFERIDO</th>
-						<th class="text-center">FOTOGRAFIA</th>
-						<th class="text-center">LATITUD</th>
-						<th class="text-center">LONGITUD</th>
-						<th class="text-center">ACCIONES</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php foreach ($listadoAgencias as $agencia) : ?>
-						<tr>
-							<td class="text-center"><?php echo $agencia->idAgencia; ?></td>
-							<td class="text-center"><?php echo $agencia->nombre; ?></td>
-							<td class="text-center"><?php echo $agencia->direccion; ?></td>
-							<td class="text-center"><?php echo $agencia->email; ?></td>
-							<td class="text-center"><?php echo $agencia->telefono; ?></td>
-							<td class="text-center"><?php echo $agencia->ciudad; ?></td>
-							<td class="text-center"><?php echo $agencia->provincia; ?></td>
-							<td class="text-center"><?php echo $agencia->fechaInaguracion; ?></td>
-							<td class="text-center"><?php echo $agencia->horario; ?></td>
-							<td class="text-center"><?php echo $agencia->horarioDiferido; ?></td>
-							<td class="text-center">
-								<?php if ($agencia->fotografia != "") : ?>
-									<img src="<?php echo base_url('uploads/agencias/') . $agencia->fotografia; ?>" height="50px" width="50px" alt="">
-								<?php else : ?>
-									N/A
-								<?php endif; ?>
-							</td>
-							<td class="text-center"><?php echo $agencia->latitudAgencia; ?></td>
-							<td class="text-center"><?php echo $agencia->longitudAgencia; ?></td>
-							<td class="text-center">
-								<a href="<?php echo site_url('agencias/borrar/') . $agencia->idAgencia; ?>" class=" btn btn-outline-danger delete-btn" title="Eliminar">
-									<i class="bi bi-trash3-fill"></i>
-								</a>
-								<a href="<?php echo site_url('agencias/editar/') . $agencia->idAgencia; ?>" class=" btn btn-outline-warning" title="Editar">
-									<i class="bi bi-pen"></i>
-								</a>
-							</td>
-						</tr>
-					<?php endforeach; ?>
-				</tbody>
-			</table>
-		<?php else : ?>
-			<div class="alert alert-danger">
-				No se encontro agenciaes registrados
-			</div>
-		<?php endif; ?>
-	</div>
 	<script>
 		function initMap() {
-			var coordenadaCentral = new google.maps.LatLng(-0.9171755208692692, -78.6328634793978);
+			var coordenadaCentral = new google.maps.LatLng(<?php echo $agenciaEditar->latitudAgencia; ?>, <?php echo $agenciaEditar->longitudAgencia; ?>);
 			var miMapa = new google.maps.Map(document.getElementById('mapa'), {
 				center: coordenadaCentral,
 				zoom: 13,

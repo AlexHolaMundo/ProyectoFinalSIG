@@ -44,9 +44,10 @@ class Cajero extends CI_Model
 
 	//Function para actualizar un cajero
 	function actualizar($id, $datos)
-	{
-		$this->db->where('idCajero', $id);
-		$return = $this->db->update('cajero', $datos);
-		return $return;
-	}
+{
+    $this->db->where('idCajero', $id);
+    echo $this->db->last_query();
+    $return = $this->db->update('cajero', $datos);
+    return $return;
+}
 }

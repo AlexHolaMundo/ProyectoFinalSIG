@@ -11,21 +11,7 @@
 						</div>
 						<div class="card-body">
 							<form action="<?php echo site_url('cajeros/actualizarCajero'); ?>" method="POST" enctype="multipart/form-data" id="formCajeros">
-								<input type="hidden" name="idAgencia" id="idCajero" value="<?php echo $cajeroEditar->idCajero ?>">
-								<div class="mb-3">
-									<label class="form-label" for="id_agencia">Nombre Agencia</label>
-									<div class="input-group input-group-merge">
-										<span class="input-group-text"><i class="bx bxs-map-alt"></i></span>
-										<select id="id_agencia" name="id_agencia" class="form-select">
-											<option value="" disabled>Seleccione una agencia</option>
-											<?php foreach ($listadoAgencias as $agencia) : ?>
-												<option value="<?php echo $agencia->idAgencia; ?>" <?php if (isset($cajeroEditar->idAgencia) && $cajeroEditar->idAgencia == $agencia->idAgencia) echo 'selected'; ?>><?php echo $agencia->nombre; ?></option>
-											<?php endforeach; ?>
-										</select>
-										<label id="nombre-error" class="error error-message" for="nombre"></label>
-									</div>
-								</div>
-
+								<input type="hidden" name="idCajero" id="idCajero" value="<?php echo $cajeroEditar->idCajero ?>">
 								<div class="row">
 									<div class="col-md-6">
 										<div class="mb-3">

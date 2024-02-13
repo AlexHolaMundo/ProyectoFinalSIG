@@ -11,19 +11,6 @@
 						</div>
 						<div class="card-body">
 							<form action="<?php echo site_url('cajeros/guardar'); ?>" method="POST" enctype="multipart/form-data" id="formCajeros">
-								<div class="mb-3">
-									<label class="form-label" for="id_agencia">Nombre Agencia</label>
-									<div class="input-group input-group-merge">
-										<span class="input-group-text"><i class="bx bxs-map-alt"></i></span>
-										<select id="id_agencia" name="id_agencia" class="form-select">
-											<option value="" disabled selected>Seleccione una agencia</option>
-											<?php foreach ($listadoAgencias as $agencia) : ?>
-												<option value="<?php echo $agencia->idAgencia; ?>"><?php echo $agencia->nombre; ?></option>
-											<?php endforeach; ?>
-										</select>
-										<label id="nombre-error" class="error error-message" for="nombre"></label>
-									</div>
-								</div>
 								<div class="row">
 									<div class="col-md-6">
 										<div class="mb-3">
@@ -123,7 +110,6 @@
 				<thead>
 					<tr style="background-color: #097635;">
 						<th class="text-center">ID</th>
-						<th class="text-center">NOMBRE AGENCIA</th>
 						<th class="text-center">ESTADO</th>
 						<th class="text-center">TIPO</th>
 						<th class="text-center">PROVINCIA</th>
@@ -138,7 +124,6 @@
 					<?php foreach ($listadoCajeros as $cajero) : ?>
 						<tr>
 							<td class="text-center"><?php echo $cajero->idCajero; ?></td>
-							<td class="text-center"><?php echo $cajero->nombreAgencia; ?></td>
 							<td class="text-center"><?php echo $cajero->estado; ?></td>
 							<td class="text-center"><?php echo $cajero->tipo; ?></td>
 							<td class="text-center"><?php echo $cajero->provincia; ?></td>

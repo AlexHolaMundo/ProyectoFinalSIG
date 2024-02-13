@@ -11,7 +11,6 @@ class Cajeros extends CI_Controller
 	//Renderizar la vista de la lista de cajeros
 	public function index()
 	{
-		$data['listadoAgencias'] = $this->Agencia->consultarTodos();
 		$data['listadoCajeros'] = $this->Cajero->consultarTodos();
 		$this->load->view('../views/templates/header');
 		$this->load->view('cajeros/index', $data);
@@ -29,10 +28,6 @@ class Cajeros extends CI_Controller
 	//Insertar un cajero
 	public function guardar()
 	{
-		// Obtener el nombre de la agencia seleccionada
-		$idAgencia = $this->input->post("id_agencia");
-		$agencia = $this->Agencia->obtenerPorId($idAgencia);
-		$nombreAgencia = ($agencia) ? $agencia->nombre : "";
 		$datosNuevoCajero = array(
 			"estado" => $this->input->post("estado"),
 			"tipo" => $this->input->post("tipo"),
@@ -41,8 +36,6 @@ class Cajeros extends CI_Controller
 			"serie" => $this->input->post("serie"),
 			"latitudCajero" => $this->input->post("latitudCajero"),
 			"longitudCajero" => $this->input->post("longitudCajero"),
-			"idAgencia" => $this->input->post("id_agencia"),
-			"nombreAgencia" => $nombreAgencia
 		);
 		$this->Cajero->insertar($datosNuevoCajero);
 		$this->session->set_flashdata('alerta', 'Cajero guardado correctamente');
@@ -53,36 +46,43 @@ class Cajeros extends CI_Controller
 	public function editar($id)
 	{
 		$data['cajeroEditar'] = $this->Cajero->obtenerPorId($id);
-		$data['listadoAgencias'] = $this->Agencia->consultarTodos();
-		$data['cajeroActualizado'] = $this->Cajero->obtenerPorId($id);
 		$this->load->view('../views/templates/header');
 		$this->load->view('cajeros/editar', $data);
 		$this->load->view('../views/templates/footer');
 	}
 
 
-	//Actualizar un cajero
-	public function actualizarCajero()
-	{
-		$idCajero = $this->input->post("idCajero");
-		// Obtener el nombre de la agencia seleccionada
-		$idAgencia = $this->input->post("id_agencia");
-		$agencia = $this->Agencia->obtenerPorId($idAgencia);
-		$nombreAgencia = ($agencia) ? $agencia->nombre : "";
-		//Datos Actualizados del cajero
-		$datosCajero = array(
-			"estado" => $this->input->post("estado"),
-			"tipo" => $this->input->post("tipo"),
-			"provincia" => $this->input->post("provincia"),
-			"ciudad" => $this->input->post("ciudad"),
-			"serie" => $this->input->post("serie"),
-			"latitudCajero" => $this->input->post("latitudCajero"),
-			"longitudCajero" => $this->input->post("longitudCajero"),
-			"idAgencia" => $idAgencia,
-			"nombreAgencia" => $nombreAgencia
-		);
-		$this->Cajero->actualizar($idCajero, $datosCajero);
-		$this->session->set_flashdata('alerta', 'Cajero actualizado correctamente');
-		redirect('cajeros/index');
-	}
+	// Actualizar un cajero
+public function actualizarCajero()
+{
+    // Obtener el ID del cajero a actualizar
+    $idCajero = $this->input->post("idCajero");
+
+    // Obtener los datos del formulario
+    $datosCajero = array(
+        "estado" => $this->input->post("estado"),
+        "tipo" => $this->input->post("tipo"),
+        "provincia" => $this->input->post("provincia"),
+        "ciudad" => $this->input->post("ciudad"),
+        "serie" => $this->input->post("serie"),
+        "latitudCajero" => $this->input->post("latitudCajero"),
+        "longitudCajero" => $this->input->post("longitudCajero"),
+    );
+
+    // Cargar el modelo Cajero
+    $this->load->model('Cajero');
+
+    // Actualizar el cajero en la base de datos
+    $actualizado = $this->Cajero->actualizar($idCajero, $datosCajero);
+
+    if ($actualizado) {
+        $this->session->set_flashdata('alerta', 'Cajero actualizado correctamente');
+    } else {
+        $this->session->set_flashdata('alerta', 'Error al actualizar el cajero');
+    }
+
+    // Redireccionar a la página de lista de cajeros
+    redirect('cajeros/index');
+}
+
 }

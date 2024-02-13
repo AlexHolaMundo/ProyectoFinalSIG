@@ -75,21 +75,12 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="col-md-6">
 										<div class="mb-3">
-											<label class="form-label" for="">Fotografia Actual</label>
-											<br>
-											<?php if ($cajeroEditar->fotografia) : ?>
-												<img src="<?php echo base_url('uploads/cajeros/') . $cajeroEditar->fotografia; ?>" alt="Fotografía Actual" style="max-width: 200px;" />
-											<?php else : ?>
-												<p>No hay fotografía disponible</p>
-											<?php endif; ?>
+											<label class="form-label" for="">Numero de Serie</label>
+											<div class="input-group input-group-merge">
+											<span id="" class="input-group-text"><i class="bx bx-buildings"></i></span>
+											<input type="text" id="serie" name="serie" class="form-control" placeholder="000000000" value="<?php echo $cajeroEditar->serie ?>" />
 										</div>
-									</div>
-									<div class="col-md-6">
-										<label class="form-label" for="">Actualizar Fotografia (Opcional)</label>
-										<span id="" class="input-group-text"><i class="bx bx-image-add"></i></span>
-										<input type="file" class="form-control" id="nueva_foto_caj" name="nueva_foto_caj">
 									</div>
 								</div>
 								<div class="row">

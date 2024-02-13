@@ -169,13 +169,9 @@ $(document).ready(function () {
 			},
 			estado: {
 				required: true,
-				minlength: 3,
-				maxlength: 50,
 			},
 			tipo: {
 				required: true,
-				minlength: 3,
-				maxlength: 50,
 			},
 			provincia: {
 				required: true,
@@ -189,7 +185,7 @@ $(document).ready(function () {
 				minlength: 3,
 				maxlength: 50,
 			},
-			fotografia: {
+			serie: {
 				required: true,
 				minlength: 3,
 				maxlength: 50,
@@ -228,13 +224,9 @@ $(document).ready(function () {
 			},
 			estado: {
 				required: "Por favor, ingrese el estado del cajero",
-				minlength: "El estado debe tener al menos 3 caracteres",
-				maxlength: "El estado debe tener máximo 50 caracteres",
 			},
 			tipo: {
 				required: "Por favor, ingrese el tipo de cajero",
-				minlength: "El tipo debe tener al menos 3 caracteres",
-				maxlength: "El tipo debe tener máximo 50 caracteres",
 			},
 			provincia: {
 				required: "Por favor, ingrese la provincia del cajero",
@@ -248,7 +240,7 @@ $(document).ready(function () {
 				minlength: "La ciudad debe tener al menos 3 caracteres",
 				maxlength: "La ciudad debe tener máximo 50 caracteres",
 			},
-			fotografia: {
+			serie: {
 				required: "Por favor, ingrese la fotografia del cajero",
 				minlength: "La fotografia debe tener al menos 3 caracteres",
 				maxlength: "La fotografia debe tener máximo 50 caracteres",

@@ -46,9 +46,26 @@
 	<script src="<?= base_url('assets/js/config.js') ?>"></script>
 	<!-- Google Maps API -->
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqMDMrp8yZDRwwhG7ESbyCPFu_o_InLgk&libraries=places&callback=initMap"></script>
-
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
+	<script src="<?= base_url('assets/vendor/libs/jquery/jquery.js') ?>"></script>
+	<script src="<?= base_url('assets/vendor/libs/popper/popper.js') ?>"></script>
+	<script src="<?= base_url('assets/vendor/js/bootstrap.js') ?>"></script>
+	<script src="<?= base_url('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') ?>"></script>
+	<script src="<?= base_url('assets/vendor/js/menu.js') ?>"></script>
+	<!-- endbuild -->
+	<!-- Vendors JS -->
+	<script src="<?= base_url('assets/vendor/libs/apex-charts/apexcharts.js') ?>"></script>
+	<!-- Main JS -->
+	<script src="<?= base_url('assets/js/main.js') ?>"></script>
+	<!-- Page JS -->
+	<script src="<?= base_url('assets/js/dashboards-analytics.js') ?>"></script>
+	<!-- Place this tag in your head or just before your close body tag. -->
+	<script async defer src="https://buttons.github.io/buttons.js"></script>
+	<!-- Bootstrap Fileinput JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.8/js/fileinput.min.js"></script>
+	<!-- español fileinput -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.8/js/locales/es.min.js"></script>
+	<script src="<?= base_url('js/fileInput.js') ?>"></script>
 </head>
 <style>
 	label.error {
@@ -74,11 +91,12 @@
 		padding-top: 5px;
 		/* Espaciado superior para separar del campo */
 	}
-	/* Estilo para el ícono cuando hay error */
-.input-group.error .input-group-text {
-    color: red; /* Cambia el color del ícono a rojo */
-}
 
+	/* Estilo para el ícono cuando hay error */
+	.input-group.error .input-group-text {
+		color: red;
+		/* Cambia el color del ícono a rojo */
+	}
 </style>
 
 <body>
@@ -129,6 +147,14 @@
 						<a href="<?php echo site_url('corresponsales/index'); ?>" class="menu-link">
 							<i class="menu-icon tf-icons bx bx-building-house"></i>
 							<div data-i18n="Basic">Corresponsales</div>
+						</a>
+					</li>
+					<li class="menu-header small text-uppercase"><span class="menu-header-text">REPORTES</span></li>
+					<!-- Cards -->
+					<li class="menu-item">
+						<a href="<?php echo site_url('reportes/index'); ?>" class="menu-link">
+							<i class="menu-icon bx bxs-map"></i>
+							<div data-i18n="Basic">Reportes</div>
 						</a>
 					</li>
 				</ul>

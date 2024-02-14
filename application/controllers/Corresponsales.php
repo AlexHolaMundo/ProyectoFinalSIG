@@ -100,10 +100,10 @@ class Corresponsales extends CI_Controller
 			$nombre_archivo_subido = $corresponsalActual->fotografia; // Conservar la foto actual si no se selecciona una nueva
 		}
 		//Datos actualizados del corresponsal
-		$datosCorresponsal=array(
+		$datosCorresponsal = array(
 			"nombre" => $this->input->post("nombre"),
 			"direccion" => $this->input->post("direccion"),
-			"telefono"=> $this->input->post("telefono"),
+			"telefono" => $this->input->post("telefono"),
 			"descripcion" => $this->input->post("descripcion"),
 			"horario" => $this->input->post("horario"),
 			"fotografia" => $nombre_archivo_subido,
@@ -114,5 +114,4 @@ class Corresponsales extends CI_Controller
 		$this->session->set_flashdata('alerta', 'Corresponsal actualizado correctamente');
 		redirect('corresponsales/index');
 	}
-
 }

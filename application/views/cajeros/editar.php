@@ -7,7 +7,7 @@
 					<div class="card mb-4">
 						<div class="card-header d-flex justify-content-between align-items-center">
 							<h5 class="mb-0">Editar Cajero</h5>
-							<small class="text-muted float-end">Cajeros</small>
+							<small class="text-muted float-end">Cajeros <strong>&nbsp;/&nbsp;</strong> <a href="<?php echo site_url('reportes/index') ?>">Ver Reportes</a></small>
 						</div>
 						<div class="card-body">
 							<form action="<?php echo site_url('cajeros/actualizarCajero'); ?>" method="POST" enctype="multipart/form-data" id="formCajeros">
@@ -94,7 +94,7 @@
 								<div class="row">
 									<div class="col-md-12 m-2">
 										<legend class="text-center">Arrastra el marcador hacia la ubicacion</legend>
-										<div id="mapaCajeros" style="width: 100%; height:310px; border-radius:5px;"></div>
+										<div id="mapaCajeros" style="width: 100%; height:550px; border-radius:5px;"></div>
 									</div>
 								</div>
 								<button type="submit" class="btn btn-primary">Actualizar</button>
@@ -111,7 +111,7 @@
 			var coordenadaCentral = new google.maps.LatLng(<?php echo $cajeroEditar->latitudCajero; ?>, <?php echo $cajeroEditar->longitudCajero; ?>);
 			var miMapa = new google.maps.Map(document.getElementById('mapaCajeros'), {
 				center: coordenadaCentral,
-				zoom: 13,
+				zoom: 7,
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 			});
 

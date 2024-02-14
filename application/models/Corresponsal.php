@@ -14,15 +14,11 @@ class Corresponsal extends CI_Model
 	}
 
 	//Obtener todos los corresponsales
-	function consultarTodos()
+	public function consultarTodos()
 	{
-		$corresponsales = $this->db->get('corresponsal');
-		if ($corresponsales->num_rows() > 0) {
-			return $corresponsales->result();
-		} else {
-			return false;
-		}
+		return $this->db->get('corresponsal')->result();
 	}
+
 
 	//Eliminar corresponsal por id
 	function eliminar($id)

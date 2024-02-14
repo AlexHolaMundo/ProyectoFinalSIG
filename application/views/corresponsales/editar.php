@@ -7,7 +7,7 @@
 					<div class="card mb-4">
 						<div class="card-header d-flex justify-content-between align-items-center">
 							<h5 class="mb-0">Editar Corresponsal</h5>
-							<small class="text-muted float-end">Corresponsales</small>
+							<small class="text-muted float-end">Corresponsales <strong>&nbsp;/&nbsp;</strong> <a href="<?php echo site_url('reportes/index') ?>">Ver Reportes</a></small>
 						</div>
 						<div class="card-body">
 							<form action="<?php echo site_url('corresponsales/ActualizarCorresponsal'); ?>" method="POST" enctype="multipart/form-data" id="formCorresponsales">
@@ -104,7 +104,7 @@
 								<div class="row">
 									<div class="col-md-12 m-2">
 										<legend class="text-center">Arrastra el marcador hacia la ubicacion</legend>
-										<div id="mapa" style="width: 100%; height:310px; border-radius:5px;"></div>
+										<div id="mapa" style="width: 100%; height:550px; border-radius:5px;"></div>
 									</div>
 								</div>
 								<button type="submit" class="btn btn-primary">Actualizar</button>
@@ -121,7 +121,7 @@
 			var coordenadaCentral = new google.maps.LatLng(<?php echo $corresponsalEditar->latitudCorresponsal; ?>, <?php echo $corresponsalEditar->longitudCorresponsal; ?>);
 			var miMapa = new google.maps.Map(document.getElementById('mapa'), {
 				center: coordenadaCentral,
-				zoom: 13,
+				zoom: 7,
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 			});
 

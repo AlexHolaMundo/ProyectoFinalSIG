@@ -3,25 +3,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
-	public function index()
-	{
-		$this->load->view('../views/templates/header.php');
-		$this->load->view('welcome_message');
-		$this->load->view('../views/templates/footer.php');
-	}
+    public function index()
+    {
+		// Carga el modelo de Agencias
+        $this->load->model('Agencia');
+        $data['listadoAgencias'] = $this->Agencia->consultarTodos();
+        $data['totalAgencias'] = count($data['listadoAgencias']);
+
+        // Carga el modelo de cajeros
+        $this->load->model('Cajero');
+        $data['listadoCajeros'] = $this->Cajero->consultarTodos();
+        $data['totalCajeros'] = count($data['listadoCajeros']);
+
+        // Carga el modelo de corresponsales
+        $this->load->model('Corresponsal');
+        $data['listadoCorresponsales'] = $this->Corresponsal->consultarTodos();
+        $data['totalCorresponsales'] = count($data['listadoCorresponsales']);
+
+
+        // Carga la vista y pasa los datos de los corresponsales
+        $this->load->view('../views/templates/header.php');
+        $this->load->view('welcome_message', $data);
+        $this->load->view('../views/templates/footer.php');
+    }
 }

@@ -72,7 +72,7 @@
 				title: agencia.nombre,
 				icon: {
 					url: iconoURL,
-					scaledSize: new google.maps.Size(40, 40)
+					scaledSize: new google.maps.Size(30, 30)
 				}
 			});
 		});
@@ -95,7 +95,7 @@
 				title: cajero.nombre,
 				icon: {
 					url: iconoURL,
-					scaledSize: new google.maps.Size(40, 40)
+					scaledSize: new google.maps.Size(30, 30)
 				}
 			});
 		});
@@ -118,7 +118,7 @@
 				title: corresponsal.nombre,
 				icon: {
 					url: iconoURL,
-					scaledSize: new google.maps.Size(40, 40)
+					scaledSize: new google.maps.Size(30, 30)
 				}
 			});
 		});
@@ -141,7 +141,7 @@
 				title: agencia.nombre,
 				icon: {
 					url: iconoURL,
-					scaledSize: new google.maps.Size(40, 40)
+					scaledSize: new google.maps.Size(25, 25)
 				}
 			});
 		});
@@ -155,7 +155,7 @@
 				title: cajero.nombre,
 				icon: {
 					url: iconoURL,
-					scaledSize: new google.maps.Size(40, 40)
+					scaledSize: new google.maps.Size(25, 25)
 				}
 			});
 		});
@@ -169,7 +169,7 @@
 				title: corresponsal.nombre,
 				icon: {
 					url: iconoURL,
-					scaledSize: new google.maps.Size(40, 40)
+					scaledSize: new google.maps.Size(25, 25)
 				}
 			});
 		});
